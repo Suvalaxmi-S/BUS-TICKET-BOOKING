@@ -1,0 +1,9 @@
+<div class="main">
+  <div class="data" *ngFor="let val of values; let i = index">
+    <div class="sub" *ngFor="let v of val">
+      <p>NAME:{{ v[i].name }}</p>
+      <p>GENDER:{{ v[i].gender }}</p>
+      <p>AGE:{{ v[i].age }}</p>
+    </div>
+  </div>
+</div>

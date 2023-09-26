@@ -4,10 +4,11 @@ import { FormControl, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { pipe, map } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-
+import { BusesService } from '../services/buses.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormGroup, FormArray, ValidatorFn } from '@angular/forms';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-seat',
@@ -24,7 +25,8 @@ export class SeatComponent implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private busSer: BusesService
   ) {
     this.route.paramMap.subscribe((params) => {
       const busNo = params.get('Bus_No');
@@ -231,9 +233,10 @@ export class SeatComponent implements OnInit {
     console.log('Selected Items:', this.selectedItems);
   }
   formValues: FormGroup[] = [];
+  duplicate_array: any[] = [];
   onSubmit() {
     const seatDataArray = this.formValues.map((seatForm) => seatForm.value);
-    console.log(seatDataArray);
+    this.duplicate_array.push(seatDataArray);
   }
 
   ngOnInit(): void {
@@ -243,5 +246,10 @@ export class SeatComponent implements OnInit {
       age: ['', Validators.required],
     });
     this.formValues.push(this.myForm);
+  }
+  book() {
+    console.log(this.duplicate_array);
+    this.busSer.sendata(this.duplicate_array);
+    this.router.navigate(['book']);
   }
 }

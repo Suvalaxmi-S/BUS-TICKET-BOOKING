@@ -13,6 +13,7 @@ import { BusesService } from './services/buses.service';
 import { SeatComponent } from './seat/seat.component';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import { BookingComponent } from './booking/booking.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
   { path: 'seat/:Bus_No', component: SeatComponent },
   { path: 'login/signup/login', component: LoginComponent },
   { path: 'seat', component: SeatComponent },
-
+  { path: 'book', component: BookingComponent },
   { path: 'buses', component: SeatSelectionComponent },
 ];
 
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     SeatComponent,
 
     SeatSelectionComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,
