@@ -1,0 +1,132 @@
+.main-container {
+  margin-left: 200px;
+  margin-top: 10px;
+  width: 500px;
+  height: 380px;
+  justify-content: center; /* Center the row of seat boxes horizontally */
+
+  background-color: #f0f0f0; /* Background color for the container */
+}
+
+/* Style for the row of seat boxes */
+.row1,
+.row2 {
+  display: flex; /* Make the row a flex container */
+  gap: 10px; /* Adjust the gap between seat boxes */
+  justify-content: center; /* Center the seat boxes horizontally within the row */
+}
+.row4,
+.row3,
+.row5 {
+  display: flex; /* Make the row a flex container */
+  gap: 40px; /* Adjust the gap between seat boxes */
+  justify-content: center;
+}
+
+/* Style for the seat box */
+.seat-box {
+  width: 50px; /* Adjust the width of the seat box */
+  height: 50px; /* Adjust the height of the seat box */
+  background-color: #ccc; /* Background color of the seat box */
+  border: 1px solid #000; /* Border around the seat box */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the small box inside the seat box */
+.small-box {
+  width: 30px; /* Adjust the width of the small box */
+  height: 30px; /* Adjust the height of the small box */
+  background-color: #fff; /* Background color of the small box */
+  border: 1px solid #000; /* Border around the small box */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the seat number */
+.seat-number {
+  font-size: 10px; /* Adjust the font size of the seat number */
+  margin: 0;
+}
+
+/* Style for the checkbox label */
+.checkbox-label {
+  margin-top: 5px; /* Adjust the margin between the seat number and checkbox */
+}
+
+/* Style for the checkbox input */
+.checkbox {
+  /* Add any specific styling for the checkbox input if needed */
+}
+.row3 {
+  margin-top: 20px;
+}
+
+.row6 {
+  margin-top: 20px;
+  display: flex; /* Make the row a flex container */
+  gap: 40px; /* Adjust the gap between seat boxes */
+  justify-content: center;
+}
+.samp {
+  display: flex;
+}
+
+.booking-form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.booking-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.booking-form .form-group {
+  margin-bottom: 20px;
+}
+
+.booking-form .form-group label {
+  margin-bottom: 10px;
+}
+
+.booking-form .form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.booking-form .form-group .date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-form .form-group .date label {
+  margin-right: 10px;
+}
+
+.booking-form .form-group .date input {
+  margin-right: 10px;
+}
+
+.booking-form .form-group .date input:last-child {
+  margin-right: 0;
+}
+
+.booking-form .form-group button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+}
+
+.booking-form .form-group button:hover {
+  background-color: #ddd;
+}
