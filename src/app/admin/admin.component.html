@@ -1,0 +1,57 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="mb-3">
+    <h4 class="text-dark text-muted">Login</h4>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      [(ngModel)]="email"
+      autocomplete="off"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      formControlName="password"
+      [(ngModel)]="password"
+      autocomplete="off"
+    />
+  </div>
+  <button type="submit">Login</button>
+</form>
+<div *ngIf="canView" class="main">
+  <!-- BUS1 -->
+  <div class="bus-container">
+    <div *ngFor="let seat of BUS1">
+      <div *ngIf="seat.Booked_status == true" class="card">
+        <p>Bus 1 - Seat No: {{ seat.Seat_No }}</p>
+        <p>Seat Type: {{ seat.Seat_type }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUS2 -->
+  <div class="bus-container">
+    <div *ngFor="let seat of BUS2">
+      <div *ngIf="seat.Booked_status == true" class="card">
+        <p>Bus 2 - Seat No: {{ seat.Seat_No }}</p>
+        <p>Seat Type: {{ seat.Seat_type }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUS3 -->
+  <div class="bus-container">
+    <div *ngFor="let seat of BUS3">
+      <div *ngIf="seat.Booked_status == true" class="card">
+        <p>Bus 3 - Seat No: {{ seat.Seat_No }}</p>
+        <p>Seat Type: {{ seat.Seat_type }}</p>
+      </div>
+    </div>
+  </div>
+</div>

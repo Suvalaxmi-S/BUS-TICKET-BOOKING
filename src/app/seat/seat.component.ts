@@ -17,6 +17,7 @@ import { ThisReceiver } from '@angular/compiler';
 })
 export class SeatComponent implements OnInit {
   myForm: FormGroup;
+  bus_No;
   selected_bus;
   selected_bus_name;
   selectedState: { [key: string]: boolean } = {};
@@ -30,6 +31,7 @@ export class SeatComponent implements OnInit {
   ) {
     this.route.paramMap.subscribe((params) => {
       const busNo = params.get('Bus_No');
+      this.bus_No = busNo;
       console.log(busNo);
       if (busNo === '456') {
         this.http
@@ -204,23 +206,26 @@ export class SeatComponent implements OnInit {
     });
   }
   selectedItems: string[] = [];
+  select: any[] = [];
   Cost: number = 0;
-  isSelected(seatNo: string, type: string) {
+  select_id: any[] = [];
+  isSelected(seatNo: string, type: string, selected: object) {
     // Toggle the state of the clicked checkbox
     this.selectedState[seatNo] = !this.selectedState[seatNo];
 
     if (this.selectedState[seatNo]) {
       // If the checkbox is selected, add it to the selectedItems array
       this.selectedItems.push(seatNo);
+      this.select.push(selected);
     } else {
       // If the checkbox is deselected, remove it from the selectedItems array
       this.selectedItems = this.selectedItems.filter((item) => item !== seatNo);
     }
 
-    if (type == 'seater') this.Cost = this.Cost + 700;
-    if (type == 'sleeper-lower') this.Cost = this.Cost + 1200;
-    if (type == 'sleeper-upper') this.Cost = this.Cost + 1100;
-
+    if (type === 'seater') this.Cost = this.Cost + 700;
+    if (type === 'sleeper_lower') this.Cost = this.Cost + 1200;
+    if (type === 'sleeper_upper') this.Cost = this.Cost + 1100;
+    console.log('OBJECT:', this.select);
     console.log(this.selectedItems, this.Cost);
   }
   canBook = false;
@@ -234,22 +239,44 @@ export class SeatComponent implements OnInit {
   }
   formValues: FormGroup[] = [];
   duplicate_array: any[] = [];
-  onSubmit() {
-    const seatDataArray = this.formValues.map((seatForm) => seatForm.value);
-    this.duplicate_array.push(seatDataArray);
+  onSubmit(form: FormGroup) {
+    if (form.valid) {
+      const seatDataArray = this.formValues.map((seatForm) => seatForm.value);
+      this.duplicate_array.push(seatDataArray);
+    }
   }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      name: ['', Validators.required],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern(/^[a-zA-Z\s]*$/), // Allow only letters and spaces
+        ],
+      ],
       gender: ['', Validators.required],
-      age: ['', Validators.required],
+      age: [
+        '',
+        [
+          Validators.required,
+          Validators.min(5),
+          Validators.max(99),
+          Validators.pattern('^[0-9]*$'), // Only allow numeric values
+        ],
+      ],
     });
     this.formValues.push(this.myForm);
   }
   book() {
     console.log(this.duplicate_array);
-    this.busSer.sendata(this.duplicate_array);
+    this.busSer.sendata(
+      this.duplicate_array,
+      this.selectedItems,
+      this.bus_No,
+      this.select
+    );
     this.router.navigate(['book']);
   }
 }

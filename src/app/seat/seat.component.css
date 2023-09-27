@@ -76,57 +76,53 @@
   display: flex;
 }
 
-.booking-form {
-  width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.booking-form h3 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.booking-form .form-group {
-  margin-bottom: 20px;
-}
-
-.booking-form .form-group label {
-  margin-bottom: 10px;
-}
-
-.booking-form .form-group input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.booking-form .form-group .date {
+/* Center the form */
+.center-form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto; /* Add vertical scrollbar when needed */
 }
 
-.booking-form .form-group .date label {
-  margin-right: 10px;
+/* Style the form */
+.form-container {
+  border: 2px solid #ddd;
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  max-height: 80vh; /* Maximum height for the form container */
+  overflow-y: auto; /* Add vertical scrollbar when needed */
 }
 
-.booking-form .form-group .date input {
-  margin-right: 10px;
+/* Optional: Style form elements */
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
 }
 
-.booking-form .form-group .date input:last-child {
-  margin-right: 0;
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
 }
 
-.booking-form .form-group button {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #000;
+/* Center the button */
+.form-container button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #4caf50;
   color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.booking-form .form-group button:hover {
-  background-color: #ddd;
+/* Optional: Hover effect for the button */
+.form-container button:hover {
+  background-color: #45a049;
 }

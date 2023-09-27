@@ -14,6 +14,9 @@ import { SeatComponent } from './seat/seat.component';
 
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 import { BookingComponent } from './booking/booking.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +26,9 @@ const appRoutes: Routes = [
   { path: 'seat', component: SeatComponent },
   { path: 'book', component: BookingComponent },
   { path: 'buses', component: SeatSelectionComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({
@@ -35,6 +41,9 @@ const appRoutes: Routes = [
 
     SeatSelectionComponent,
     BookingComponent,
+    HomeComponent,
+    ContactComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

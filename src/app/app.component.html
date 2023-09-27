@@ -2,18 +2,16 @@
   <div class="logo">
     <img src="./assets/logo.png" alt="Logo" />
   </div>
-  <!-- <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav> -->
+  <nav>
+    <ul>
+      <li><a routerLink="home">Home</a></li>
+      <li id="aa"><a routerLink="contact">Contact</a></li>
+    </ul>
+  </nav>
   <div class="login">
-    <a routerLink="login">Admin</a>&nbsp;
+    <a routerLink="admin">Admin</a>&nbsp;
     <a routerLink="login">User</a>
   </div>
 </header>
-<a routerLink="buses">load</a>
+
 <router-outlet></router-outlet>

@@ -9,8 +9,13 @@
             [value]="selected_bus[0].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[0].Seat_No, selected_bus[0].Seat_type)
+              isSelected(
+                selected_bus[0].Seat_No,
+                selected_bus[0].Seat_type,
+                selected_bus[0]
+              )
             "
+            [disabled]="selected_bus[0].Booked_status"
           />
         </label>
       </div>
@@ -24,8 +29,13 @@
             [value]="selected_bus[1].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[1].Seat_No, selected_bus[1].Seat_type)
+              isSelected(
+                selected_bus[1].Seat_No,
+                selected_bus[1].Seat_type,
+                selected_bus[1]
+              )
             "
+            [disabled]="selected_bus[1].Booked_status"
           />
         </label>
       </div>
@@ -39,8 +49,13 @@
             [value]="selected_bus[2].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[2].Seat_No, selected_bus[2].Seat_type)
+              isSelected(
+                selected_bus[2].Seat_No,
+                selected_bus[2].Seat_type,
+                selected_bus[2]
+              )
             "
+            [disabled]="selected_bus[2].Booked_status"
           />
         </label>
       </div>
@@ -54,8 +69,13 @@
             [value]="selected_bus[3].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[3].Seat_No, selected_bus[3].Seat_type)
+              isSelected(
+                selected_bus[3].Seat_No,
+                selected_bus[3].Seat_type,
+                selected_bus[3]
+              )
             "
+            [disabled]="selected_bus[3].Booked_status"
           />
         </label>
       </div>
@@ -69,8 +89,13 @@
             [value]="selected_bus[4].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[4].Seat_No, selected_bus[4].Seat_type)
+              isSelected(
+                selected_bus[4].Seat_No,
+                selected_bus[4].Seat_type,
+                selected_bus[4]
+              )
             "
+            [disabled]="selected_bus[4].Booked_status"
           />
         </label>
       </div>
@@ -84,8 +109,13 @@
             [value]="selected_bus[5].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[5].Seat_No, selected_bus[5].Seat_type)
+              isSelected(
+                selected_bus[5].Seat_No,
+                selected_bus[5].Seat_type,
+                selected_bus[5]
+              )
             "
+            [disabled]="selected_bus[5].Booked_status"
           />
         </label>
       </div>
@@ -101,8 +131,13 @@
             [value]="selected_bus[6].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[6].Seat_No, selected_bus[6].Seat_type)
+              isSelected(
+                selected_bus[6].Seat_No,
+                selected_bus[6].Seat_type,
+                selected_bus[6]
+              )
             "
+            [disabled]="selected_bus[6].Booked_status"
           />
         </label>
       </div>
@@ -116,8 +151,13 @@
             [value]="selected_bus[7].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[7].Seat_No, selected_bus[7].Seat_type)
+              isSelected(
+                selected_bus[7].Seat_No,
+                selected_bus[7].Seat_type,
+                selected_bus[7]
+              )
             "
+            [disabled]="selected_bus[7].Booked_status"
           />
         </label>
       </div>
@@ -131,8 +171,13 @@
             [value]="selected_bus[8].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[8].Seat_No, selected_bus[8].Seat_type)
+              isSelected(
+                selected_bus[8].Seat_No,
+                selected_bus[8].Seat_type,
+                selected_bus[8]
+              )
             "
+            [disabled]="selected_bus[8].Booked_status"
           />
         </label>
       </div>
@@ -146,8 +191,13 @@
             [value]="selected_bus[9].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[9].Seat_No, selected_bus[9].Seat_type)
+              isSelected(
+                selected_bus[9].Seat_No,
+                selected_bus[9].Seat_type,
+                selected_bus[9]
+              )
             "
+            [disabled]="selected_bus[9].Booked_status"
           />
         </label>
       </div>
@@ -161,8 +211,13 @@
             [value]="selected_bus[10].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[10].Seat_No, selected_bus[10].Seat_type)
+              isSelected(
+                selected_bus[10].Seat_No,
+                selected_bus[10].Seat_type,
+                selected_bus[10]
+              )
             "
+            [disabled]="selected_bus[10].Booked_status"
           />
         </label>
       </div>
@@ -176,8 +231,13 @@
             [value]="selected_bus[11].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[11].Seat_No, selected_bus[11].Seat_type)
+              isSelected(
+                selected_bus[11].Seat_No,
+                selected_bus[11].Seat_type,
+                selected_bus[11]
+              )
             "
+            [disabled]="selected_bus[11].Booked_status"
           />
         </label>
       </div>
@@ -193,8 +253,13 @@
             [value]="selected_bus[12].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[12].Seat_No, selected_bus[12].Seat_type)
+              isSelected(
+                selected_bus[12].Seat_No,
+                selected_bus[12].Seat_type,
+                selected_bus[12]
+              )
             "
+            [disabled]="selected_bus[12].Booked_status"
           />
         </label>
       </div>
@@ -208,8 +273,13 @@
             [value]="selected_bus[13].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[13].Seat_No, selected_bus[13].Seat_type)
+              isSelected(
+                selected_bus[13].Seat_No,
+                selected_bus[13].Seat_type,
+                selected_bus[13]
+              )
             "
+            [disabled]="selected_bus[13].Booked_status"
           />
         </label>
       </div>
@@ -223,8 +293,13 @@
             [value]="selected_bus[14].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[14].Seat_No, selected_bus[14].Seat_type)
+              isSelected(
+                selected_bus[14].Seat_No,
+                selected_bus[14].Seat_type,
+                selected_bus[14]
+              )
             "
+            [disabled]="selected_bus[14].Booked_status"
           />
         </label>
       </div>
@@ -238,8 +313,13 @@
             [value]="selected_bus[15].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[15].Seat_No, selected_bus[15].Seat_type)
+              isSelected(
+                selected_bus[15].Seat_No,
+                selected_bus[15].Seat_type,
+                selected_bus[15]
+              )
             "
+            [disabled]="selected_bus[15].Booked_status"
           />
         </label>
       </div>
@@ -256,8 +336,13 @@
             [value]="selected_bus[16].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[16].Seat_No, selected_bus[16].Seat_type)
+              isSelected(
+                selected_bus[16].Seat_No,
+                selected_bus[16].Seat_type,
+                selected_bus[16]
+              )
             "
+            [disabled]="selected_bus[16].Booked_status"
           />
         </label>
       </div>
@@ -271,8 +356,13 @@
             [value]="selected_bus[17].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[17].Seat_No, selected_bus[17].Seat_type)
+              isSelected(
+                selected_bus[17].Seat_No,
+                selected_bus[17].Seat_type,
+                selected_bus[17]
+              )
             "
+            [disabled]="selected_bus[17].Booked_status"
           />
         </label>
       </div>
@@ -286,8 +376,13 @@
             [value]="selected_bus[18].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[18].Seat_No, selected_bus[18].Seat_type)
+              isSelected(
+                selected_bus[18].Seat_No,
+                selected_bus[18].Seat_type,
+                selected_bus[18]
+              )
             "
+            [disabled]="selected_bus[18].Booked_status"
           />
         </label>
       </div>
@@ -301,8 +396,13 @@
             [value]="selected_bus[19].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[19].Seat_No, selected_bus[19].Seat_type)
+              isSelected(
+                selected_bus[19].Seat_No,
+                selected_bus[19].Seat_type,
+                selected_bus[19]
+              )
             "
+            [disabled]="selected_bus[19].Booked_status"
           />
         </label>
       </div>
@@ -318,8 +418,13 @@
             [value]="selected_bus[20].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[20].Seat_No, selected_bus[20].Seat_type)
+              isSelected(
+                selected_bus[20].Seat_No,
+                selected_bus[20].Seat_type,
+                selected_bus[20]
+              )
             "
+            [disabled]="selected_bus[20].Booked_status"
           />
         </label>
       </div>
@@ -333,8 +438,13 @@
             [value]="selected_bus[21].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[21].Seat_No, selected_bus[21].Seat_type)
+              isSelected(
+                selected_bus[21].Seat_No,
+                selected_bus[21].Seat_type,
+                selected_bus[21]
+              )
             "
+            [disabled]="selected_bus[21].Booked_status"
           />
         </label>
       </div>
@@ -348,8 +458,13 @@
             [value]="selected_bus[22].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[22].Seat_No, selected_bus[22].Seat_type)
+              isSelected(
+                selected_bus[22].Seat_No,
+                selected_bus[22].Seat_type,
+                selected_bus[22]
+              )
             "
+            [disabled]="selected_bus[22].Booked_status"
           />
         </label>
       </div>
@@ -363,8 +478,13 @@
             [value]="selected_bus[23].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[23].Seat_No, selected_bus[23].Seat_type)
+              isSelected(
+                selected_bus[23].Seat_No,
+                selected_bus[23].Seat_type,
+                selected_bus[23]
+              )
             "
+            [disabled]="selected_bus[23].Booked_status"
           />
         </label>
       </div>
@@ -380,8 +500,13 @@
             [value]="selected_bus[24].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[24].Seat_No, selected_bus[24].Seat_type)
+              isSelected(
+                selected_bus[24].Seat_No,
+                selected_bus[24].Seat_type,
+                selected_bus[24]
+              )
             "
+            [disabled]="selected_bus[24].Booked_status"
           />
         </label>
       </div>
@@ -395,8 +520,13 @@
             [value]="selected_bus[25].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[25].Seat_No, selected_bus[25].Seat_type)
+              isSelected(
+                selected_bus[25].Seat_No,
+                selected_bus[25].Seat_type,
+                selected_bus[25]
+              )
             "
+            [disabled]="selected_bus[25].Booked_status"
           />
         </label>
       </div>
@@ -410,8 +540,13 @@
             [value]="selected_bus[26].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[26].Seat_No, selected_bus[26].Seat_type)
+              isSelected(
+                selected_bus[26].Seat_No,
+                selected_bus[26].Seat_type,
+                selected_bus[26]
+              )
             "
+            [disabled]="selected_bus[26].Booked_status"
           />
         </label>
       </div>
@@ -425,8 +560,13 @@
             [value]="selected_bus[27].BusNo"
             name="selectedItems"
             (change)="
-              isSelected(selected_bus[27].Seat_No, selected_bus[27].Seat_type)
+              isSelected(
+                selected_bus[27].Seat_No,
+                selected_bus[27].Seat_type,
+                selected_bus[27]
+              )
             "
+            [disabled]="selected_bus[27].Booked_status"
           />
         </label>
       </div>
@@ -437,42 +577,68 @@
 </div>
 
 <div *ngIf="canBook">
-  <p>Total Cost:{{ Cost }}</p>
-  <form (ngSubmit)="onSubmit()">
-    <div [formGroup]="myForm">
-      <div class="main" *ngFor="let obj of selectedItems">
-        <p>Seat No:{{ obj }}</p>
+  <div class="center-form">
+    <div class="form-container">
+      <p>Total Cost:{{ Cost }}</p>
+      <form (ngSubmit)="onSubmit(myForm)">
+        <div [formGroup]="myForm">
+          <div class="main" *ngFor="let obj of selectedItems">
+            <p>Seat No:{{ obj }}</p>
 
-        <div class="name">
-          <label for="name">Name:</label>
-          <input type="text" formControlName="name" />
-        </div>
-        <div>
-          <label for="male">Male</label>
-          <input type="radio" id="male" formControlName="gender" value="male" />
+            <div class="name">
+              <label for="name">Name:</label>
+              <input type="text" formControlName="name" />
+              <div *ngIf="myForm.get('name').hasError('required')">
+                Name is required.
+              </div>
+              <div *ngIf="myForm.get('name').hasError('minlength')">
+                Name should have a minimum length of 3 characters.
+              </div>
+              <div *ngIf="myForm.get('name').hasError('pattern')">
+                Name should only contain letters and spaces.
+              </div>
+            </div>
+            <div>
+              <label for="male">Male</label>
+              <input
+                type="radio"
+                id="male"
+                formControlName="gender"
+                value="male"
+              />
 
-          <label for="female">Female</label>
-          <input
-            type="radio"
-            id="female"
-            formControlName="gender"
-            value="female"
-          />
+              <label for="female">Female</label>
+              <input
+                type="radio"
+                id="female"
+                formControlName="gender"
+                value="female"
+              />
 
-          <label for="other">Other</label>
-          <input
-            type="radio"
-            id="other"
-            formControlName="gender"
-            value="other"
-          />
+              <label for="other">Other</label>
+              <input
+                type="radio"
+                id="other"
+                formControlName="gender"
+                value="other"
+              />
+            </div>
+            <div class="age">
+              <label for="age">AGE:</label>
+              <input type="number" formControlName="age" />
+              <div
+                *ngIf="myForm.get('age').invalid && myForm.get('age').touched"
+              >
+                <span class="error-message">Age must be between 5 and 99</span>
+              </div>
+            </div>
+            <button type="submit" [disabled]="!myForm.valid">add</button>&nbsp;
+          </div>
         </div>
-        <div class="age">
-          <input type="number" formControlName="age" />
-        </div>
-        <button type="submit">add</button>
-      </div>
+        <button type="button" [disabled]="!myForm.valid" (click)="book()">
+          book
+        </button>
+      </form>
     </div>
-    <button type="button" (click)="book()">book</button>
-  </form>
+  </div>
 </div>
