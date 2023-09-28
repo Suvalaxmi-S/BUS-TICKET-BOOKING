@@ -22,35 +22,48 @@
       autocomplete="off"
     />
   </div>
-  <button type="submit">Login</button>
+  <button type="submit">Login</button>&nbsp;
+  <button type="button" (click)="nav()">LOGOUT</button>
 </form>
 <div *ngIf="canView" class="main">
   <!-- BUS1 -->
   <div class="bus-container">
+    <p>KRISHNA TRAVELS</p>
     <div *ngFor="let seat of BUS1">
       <div *ngIf="seat.Booked_status == true" class="card">
         <p>Bus 1 - Seat No: {{ seat.Seat_No }}</p>
         <p>Seat Type: {{ seat.Seat_type }}</p>
+        <p>NAME: {{ seat.Name }}</p>
+        <p>GENDER:{{ seat.Gender }}</p>
+        <button type="button" (click)="delete_ticket(seat)">Cancel</button>
       </div>
     </div>
   </div>
 
   <!-- BUS2 -->
   <div class="bus-container">
+    <p>SRI TRAVELS</p>
     <div *ngFor="let seat of BUS2">
       <div *ngIf="seat.Booked_status == true" class="card">
         <p>Bus 2 - Seat No: {{ seat.Seat_No }}</p>
         <p>Seat Type: {{ seat.Seat_type }}</p>
+        <p>NAME: {{ seat.Name }}</p>
+        <p>GENDER:{{ seat.Gender }}</p>
+        <button type="button" (click)="delete_ticket(seat)">Cancel</button>
       </div>
     </div>
   </div>
 
   <!-- BUS3 -->
   <div class="bus-container">
+    <p>JAI TRAVELS</p>
     <div *ngFor="let seat of BUS3">
       <div *ngIf="seat.Booked_status == true" class="card">
         <p>Bus 3 - Seat No: {{ seat.Seat_No }}</p>
         <p>Seat Type: {{ seat.Seat_type }}</p>
+        <p>NAME: {{ seat.Name }}</p>
+        <p>GENDER:{{ seat.Gender }}</p>
+        <button type="button" (click)="delete_ticket(seat)">Cancel</button>
       </div>
     </div>
   </div>

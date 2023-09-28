@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0; /* Set your desired background color */
+}
+
+.main {
+  background-color: #f8f1f1; /* Set your desired background color */
+  border: 1px solid rgb(43, 42, 42);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.data {
+  margin-bottom: 20px;
+}
+
+.sub {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: #b3adad;
+  border: 1px solid rgb(59, 59, 59);
+  padding: 10px;
+}
+
+/* Remove the border from the last .sub item to avoid unnecessary line */
+.sub:last-child {
+  border-bottom: none;
+}

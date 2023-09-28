@@ -8,6 +8,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { IfStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -28,7 +30,8 @@ export class AdminComponent implements OnInit {
   constructor(
     private busSer: BusesService,
     private http: HttpClient,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -112,5 +115,50 @@ export class AdminComponent implements OnInit {
           this.BUS3 = res;
         });
     }
+  }
+
+  delete_ticket(bus) {
+    const upd = {
+      Booked_status: false,
+      BusNo: bus.BusNo,
+      Gender: '',
+      Name: '',
+      Seat_No: bus.Seat_no,
+      Seat_type: bus.Seat_type,
+      id: bus.id,
+    };
+    if (bus.BusNo == 456) {
+      this.http
+        .put(
+          `https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus1/${bus.id}.json`,
+          upd
+        )
+        .subscribe((res) => {
+          console.log(res);
+        });
+    }
+    if (bus.BusNo == 789) {
+      this.http
+        .put(
+          `https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus2/${bus.id}.json`,
+          upd
+        )
+        .subscribe((res) => {
+          console.log(res);
+        });
+    }
+    if (bus.BusNo == 985) {
+      this.http
+        .put(
+          `https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus3/${bus.id}.json`,
+          upd
+        )
+        .subscribe((res) => {
+          console.log(res);
+        });
+    }
+  }
+  nav() {
+    this.router.navigate(['login']);
   }
 }

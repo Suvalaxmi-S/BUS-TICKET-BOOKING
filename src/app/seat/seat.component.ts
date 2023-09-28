@@ -9,6 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormGroup, FormArray, ValidatorFn } from '@angular/forms';
 import { ThisReceiver } from '@angular/compiler';
+interface Seat {
+  seatNo: string;
+  gender: string; // Assuming gender is a string, you might want to use a more specific type
+  adjacent: string;
+  // ... other properties if needed
+}
 
 @Component({
   selector: 'app-seat',
@@ -214,11 +220,16 @@ export class SeatComponent implements OnInit {
     this.selectedState[seatNo] = !this.selectedState[seatNo];
 
     if (this.selectedState[seatNo]) {
-      // If the checkbox is selected, add it to the selectedItems array
+      // Find the seat in the array
+      const selectedSeat = this.selected_bus[7];
+
+      if (seatNo === 'S8' && selectedSeat && selectedSeat.Gender === 'female') {
+        alert('Only females are allowed to book');
+      }
+
       this.selectedItems.push(seatNo);
       this.select.push(selected);
     } else {
-      // If the checkbox is deselected, remove it from the selectedItems array
       this.selectedItems = this.selectedItems.filter((item) => item !== seatNo);
     }
 
@@ -228,6 +239,7 @@ export class SeatComponent implements OnInit {
     console.log('OBJECT:', this.select);
     console.log(this.selectedItems, this.Cost);
   }
+
   canBook = false;
   displaySelectedItems() {
     if (this.selectedItems.length <= 5) {
@@ -268,6 +280,10 @@ export class SeatComponent implements OnInit {
       ],
     });
     this.formValues.push(this.myForm);
+  }
+  isFemaleBooked(seat: any): boolean {
+    // Assuming you have a 'Gender' property in your seat object
+    return seat.Gender === 'female' && seat.Booked_status;
   }
   book() {
     console.log(this.duplicate_array);

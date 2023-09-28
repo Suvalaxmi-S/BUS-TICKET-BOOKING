@@ -1,42 +1,46 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
 .image-box {
-  display: flex; /* Display the image boxes horizontally */
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img {
+  width: 150px;
+  height: 150px;
 }
 
 .image-container {
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px; /* Add spacing between image boxes (adjust as needed) */
-  /* Center-align the content within each box */
-  border: 2px solid rgb(231, 225, 225);
-  border-radius: 25px;
-}
-.des {
-  margin: 0px 0px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
 .image-container img {
-  width: 200px;
-  height: 200px; /* Ensure images don't exceed the container width */
-  cursor: pointer;
-  border-radius: 25px;
-
-  border-bottom: 2px solid grey;
+  max-width: 300px;
+  height: 150px;
 }
 
-.image-container p {
-  margin-top: 10px; /* Add spacing between the image and description (adjust as needed) */
-}
-.coolor {
-  color: red;
-}
 .name {
-  margin-left: 0px;
+  margin-top: 10px;
 }
-.btn {
-  position: relative;
-  margin-left: 70px;
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
+
 .search {
   margin-top: 5px;
   margin-left: 300px;
@@ -46,6 +50,7 @@
 
 /* Style for the search input */
 .search input[type="text"] {
+  height: 20px;
   width: 200px; /* Adjust the width as needed */
   padding: 10px;
   border: 1px solid #ccc;

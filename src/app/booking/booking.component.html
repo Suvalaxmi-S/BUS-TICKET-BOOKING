@@ -1,5 +1,6 @@
 <div class="main">
   <div class="data" *ngFor="let val of values; let i = index">
+    <p>BOOKED PERSON DETAILS</p>
     <div class="sub" *ngFor="let v of val; let j = index">
       <p>SEAT NO:{{ selected_bus[i][j] }}</p>
       <p>NAME:{{ v[i].name }}</p>

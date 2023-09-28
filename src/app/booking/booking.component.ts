@@ -25,7 +25,7 @@ export class BookingComponent implements OnInit {
     this.select = this.busSer.getObj();
     let i = 0;
     const flattenedArray = this.values.flat(Infinity);
-
+    console.log('FLATTERENED ARRAY', flattenedArray);
     if (this.bus_No == '456') {
       this.http
         .post(
@@ -35,13 +35,15 @@ export class BookingComponent implements OnInit {
         .subscribe((res) => {
           console.log(res);
         });
-      this.select.forEach((item) => {
+      this.select.forEach((item, index) => {
         const id = item.id;
         const seat_no = item.Seat_No;
         const Seat_type = item.Seat_type;
         const update_values = {
           Booked_status: true,
           BusNo: 456,
+          Gender: flattenedArray[index].gender,
+          Name: flattenedArray[index].name,
           Seat_No: seat_no,
           Seat_type: Seat_type,
           id: id,
@@ -67,13 +69,15 @@ export class BookingComponent implements OnInit {
         .subscribe((res) => {
           console.log(res);
         });
-      this.select.forEach((item) => {
+      this.select.forEach((item, index) => {
         const id = item.id;
         const seat_no = item.Seat_No;
         const Seat_type = item.Seat_type;
         const update_values = {
           Booked_status: true,
           BusNo: 789,
+          Gender: flattenedArray[index].gender,
+          Name: flattenedArray[index].name,
           Seat_No: seat_no,
           Seat_type: Seat_type,
           id: id,
@@ -98,7 +102,7 @@ export class BookingComponent implements OnInit {
         .subscribe((res) => {
           console.log(res);
         });
-      this.select.forEach((item) => {
+      this.select.forEach((item, index) => {
         const id = item.id;
         const seat_no = item.Seat_No;
         const Seat_type = item.Seat_type;
@@ -106,6 +110,8 @@ export class BookingComponent implements OnInit {
           Booked_status: true,
           BusNo: 985,
           Seat_No: seat_no,
+          Gender: flattenedArray[index].gender,
+          Name: flattenedArray[index].name,
           Seat_type: Seat_type,
           id: id,
         };
