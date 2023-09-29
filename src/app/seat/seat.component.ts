@@ -9,12 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormGroup, FormArray, ValidatorFn } from '@angular/forms';
 import { ThisReceiver } from '@angular/compiler';
-interface Seat {
-  seatNo: string;
-  gender: string; // Assuming gender is a string, you might want to use a more specific type
-  adjacent: string;
-  // ... other properties if needed
-}
 
 @Component({
   selector: 'app-seat',
@@ -215,16 +209,26 @@ export class SeatComponent implements OnInit {
   select: any[] = [];
   Cost: number = 0;
   select_id: any[] = [];
+  fem: any[] = [
+    { seat: 'S1', adj: 'S7' },
+    { seat: 'S2', adj: 'S8' },
+    { seat: 'S3', adj: 'S9' },
+    { seat: 'S4', adj: 'S10' },
+    { seat: 'S5', adj: 'S11' },
+    { seat: 'S6', adj: 'S12' },
+  ];
+
   isSelected(seatNo: string, type: string, selected: object) {
     // Toggle the state of the clicked checkbox
     this.selectedState[seatNo] = !this.selectedState[seatNo];
 
     if (this.selectedState[seatNo]) {
-      // Find the seat in the array
-      const selectedSeat = this.selected_bus[7];
+      if (seatNo === 'S8') {
+        const seatS2 = this.selected_bus.find((seat) => seat.seatNo === 'S2');
 
-      if (seatNo === 'S8' && selectedSeat && selectedSeat.Gender === 'female') {
-        alert('Only females are allowed to book');
+        if (seatS2 && seatS2.Booked_status) {
+          alert('Only females are allowed to book');
+        }
       }
 
       this.selectedItems.push(seatNo);
@@ -236,6 +240,7 @@ export class SeatComponent implements OnInit {
     if (type === 'seater') this.Cost = this.Cost + 700;
     if (type === 'sleeper_lower') this.Cost = this.Cost + 1200;
     if (type === 'sleeper_upper') this.Cost = this.Cost + 1100;
+
     console.log('OBJECT:', this.select);
     console.log(this.selectedItems, this.Cost);
   }

@@ -1,728 +1,961 @@
-<div class="container">
-  <div class="booking-section">
-    <div class="ladies-box">
-      <div class="small-box pink-box"></div>
-      <p>Booked Ladies Seat</p>
+<div clas="flex">
+  <div class="head">
+    <div class="f1">
+      <img src="./assets/seat.png" style="width: 30px; height: 30px" />
+      <p>SEATER</p>
     </div>
-    <div class="gents-box">
-      <div class="small-box grey-box"></div>
-      <p>Booked Gents Seat[Disabled]</p>
+    <div class="f2">
+      <img src="./assets/seat2.png" style="width: 30px; height: 30px" />
+      <p>SLEEPER</p>
     </div>
   </div>
-  <div class="main-container">
-    <div class="row1">
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[0]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S1</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[0].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[0].Seat_No,
-                  selected_bus[0].Seat_type,
-                  selected_bus[0]
-                )
-              "
-              [disabled]="selected_bus[0].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
 
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[1]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S2</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[1].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[1].Seat_No,
-                  selected_bus[1].Seat_type,
-                  selected_bus[1]
-                )
-              "
-              [disabled]="selected_bus[1].Booked_status"
-            />
-          </label>
+  <div class="main-container">
+    <div class="upper-deck">
+      <div class="row1">
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[0].Booked_status"
+              [class.disabled-checkbox]="selected_bus[0].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[0].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[0].Seat_No,
+                    selected_bus[0].Seat_type,
+                    selected_bus[0]
+                  )
+                "
+                [disabled]="selected_bus[0].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[0].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[1].Booked_status"
+              [class.disabled-checkbox]="selected_bus[1].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[1].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[1].Seat_No,
+                    selected_bus[1].Seat_type,
+                    selected_bus[1]
+                  )
+                "
+                [disabled]="selected_bus[1].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[1].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[2].Booked_status"
+              [class.disabled-checkbox]="selected_bus[2].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[2].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[2].Seat_No,
+                    selected_bus[2].Seat_type,
+                    selected_bus[2]
+                  )
+                "
+                [disabled]="selected_bus[2].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[2].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[3].Booked_status"
+              [class.disabled-checkbox]="selected_bus[3].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[3].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[3].Seat_No,
+                    selected_bus[3].Seat_type,
+                    selected_bus[3]
+                  )
+                "
+                [disabled]="selected_bus[3].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[3].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[4].Booked_status"
+              [class.disabled-checkbox]="selected_bus[4].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[4].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[4].Seat_No,
+                    selected_bus[4].Seat_type,
+                    selected_bus[4]
+                  )
+                "
+                [disabled]="selected_bus[4].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[4].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[5].Booked_status"
+              [class.disabled-checkbox]="selected_bus[5].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[5].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[5].Seat_No,
+                    selected_bus[5].Seat_type,
+                    selected_bus[5]
+                  )
+                "
+                [disabled]="selected_bus[5].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[5].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
       </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[2]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S3</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[2].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[2].Seat_No,
-                  selected_bus[2].Seat_type,
-                  selected_bus[2]
-                )
-              "
-              [disabled]="selected_bus[2].Booked_status"
-            />
-          </label>
+      <div class="row2">
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[6].Booked_status"
+              [class.disabled-checkbox]="selected_bus[6].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[6].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[6].Seat_No,
+                    selected_bus[6].Seat_type,
+                    selected_bus[6]
+                  )
+                "
+                [disabled]="selected_bus[6].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[6].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[7].Booked_status"
+              [class.disabled-checkbox]="selected_bus[7].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[7].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[7].Seat_No,
+                    selected_bus[7].Seat_type,
+                    selected_bus[7]
+                  )
+                "
+                [disabled]="selected_bus[7].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[7].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[8].Booked_status"
+              [class.disabled-checkbox]="selected_bus[8].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[8].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[8].Seat_No,
+                    selected_bus[8].Seat_type,
+                    selected_bus[8]
+                  )
+                "
+                [disabled]="selected_bus[8].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[8].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[9].Booked_status"
+              [class.disabled-checkbox]="selected_bus[9].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[9].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[9].Seat_No,
+                    selected_bus[9].Seat_type,
+                    selected_bus[9]
+                  )
+                "
+                [disabled]="selected_bus[9].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[9].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[10].Booked_status"
+              [class.disabled-checkbox]="selected_bus[10].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[10].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[10].Seat_No,
+                    selected_bus[10].Seat_type,
+                    selected_bus[10]
+                  )
+                "
+                [disabled]="selected_bus[10].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[10].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[11].Booked_status"
+              [class.disabled-checkbox]="selected_bus[11].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[11].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[11].Seat_No,
+                    selected_bus[11].Seat_type,
+                    selected_bus[11]
+                  )
+                "
+                [disabled]="selected_bus[11].Booked_status"
+              />
+
+              <img
+                src="./assets/seater.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[11].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
       </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[3]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S4</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[3].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[3].Seat_No,
-                  selected_bus[3].Seat_type,
-                  selected_bus[3]
-                )
-              "
-              [disabled]="selected_bus[3].Booked_status"
-            />
-          </label>
+      <div class="row3">
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[12].Booked_status"
+              [class.disabled-checkbox]="selected_bus[12].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[12].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[12].Seat_No,
+                    selected_bus[12].Seat_type,
+                    selected_bus[12]
+                  )
+                "
+                [disabled]="selected_bus[12].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[12].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[4]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S5</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[4].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[4].Seat_No,
-                  selected_bus[4].Seat_type,
-                  selected_bus[4]
-                )
-              "
-              [disabled]="selected_bus[4].Booked_status"
-            />
-          </label>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[13].Booked_status"
+              [class.disabled-checkbox]="selected_bus[13].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[13].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[13].Seat_No,
+                    selected_bus[13].Seat_type,
+                    selected_bus[13]
+                  )
+                "
+                [disabled]="selected_bus[13].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[13].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[5]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S6</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[5].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[5].Seat_No,
-                  selected_bus[5].Seat_type,
-                  selected_bus[5]
-                )
-              "
-              [disabled]="selected_bus[5].Booked_status"
-            />
-          </label>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[14].Booked_status"
+              [class.disabled-checkbox]="selected_bus[14].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[14].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[14].Seat_No,
+                    selected_bus[14].Seat_type,
+                    selected_bus[14]
+                  )
+                "
+                [disabled]="selected_bus[14].Booked_status"
+                id="S1"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[14].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row2">
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[6]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S7</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[6].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[6].Seat_No,
-                  selected_bus[6].Seat_type,
-                  selected_bus[6]
-                )
-              "
-              [disabled]="selected_bus[6].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[7]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S8</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[7].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[7].Seat_No,
-                  selected_bus[7].Seat_type,
-                  selected_bus[7]
-                )
-              "
-              [disabled]="selected_bus[7].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[8]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S9</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[8].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[8].Seat_No,
-                  selected_bus[8].Seat_type,
-                  selected_bus[8]
-                )
-              "
-              [disabled]="selected_bus[8].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[9]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S10</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[9].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[9].Seat_No,
-                  selected_bus[9].Seat_type,
-                  selected_bus[9]
-                )
-              "
-              [disabled]="selected_bus[9].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[10]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S11</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[10].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[10].Seat_No,
-                  selected_bus[10].Seat_type,
-                  selected_bus[10]
-                )
-              "
-              [disabled]="selected_bus[10].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[11]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">S12</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[11].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[11].Seat_No,
-                  selected_bus[11].Seat_type,
-                  selected_bus[11]
-                )
-              "
-              [disabled]="selected_bus[11].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="row3">
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[12]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLL-1</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[12].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[12].Seat_No,
-                  selected_bus[12].Seat_type,
-                  selected_bus[12]
-                )
-              "
-              [disabled]="selected_bus[12].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[13]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLL-2</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[13].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[13].Seat_No,
-                  selected_bus[13].Seat_type,
-                  selected_bus[13]
-                )
-              "
-              [disabled]="selected_bus[13].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="isFemaleBooked(14) ? 'pink' : ''"
-        >
-          <p class="seat-number">SLL-3</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[14].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[14].Seat_No,
-                  selected_bus[14].Seat_type,
-                  selected_bus[14]
-                )
-              "
-              [disabled]="selected_bus[14].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[15]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLL-4</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[15].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[15].Seat_No,
-                  selected_bus[15].Seat_type,
-                  selected_bus[15]
-                )
-              "
-              [disabled]="selected_bus[15].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="row4">
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[16]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-1</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[16].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[16].Seat_No,
-                  selected_bus[16].Seat_type,
-                  selected_bus[16]
-                )
-              "
-              [disabled]="selected_bus[16].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[17]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-2</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[17].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[17].Seat_No,
-                  selected_bus[17].Seat_type,
-                  selected_bus[17]
-                )
-              "
-              [disabled]="selected_bus[17].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[18]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-3</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[18].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[18].Seat_No,
-                  selected_bus[18].Seat_type,
-                  selected_bus[18]
-                )
-              "
-              [disabled]="selected_bus[18].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[19]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-4</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[19].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[19].Seat_No,
-                  selected_bus[19].Seat_type,
-                  selected_bus[19]
-                )
-              "
-              [disabled]="selected_bus[19].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="row5">
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[20]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-5</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[20].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[20].Seat_No,
-                  selected_bus[20].Seat_type,
-                  selected_bus[20]
-                )
-              "
-              [disabled]="selected_bus[20].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[21]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-6</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[21].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[21].Seat_No,
-                  selected_bus[21].Seat_type,
-                  selected_bus[21]
-                )
-              "
-              [disabled]="selected_bus[21].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[22]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-7</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[22].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[22].Seat_No,
-                  selected_bus[22].Seat_type,
-                  selected_bus[22]
-                )
-              "
-              [disabled]="selected_bus[22].Booked_status"
-            />
-          </label>
-        </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[23]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-8</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[23].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[23].Seat_No,
-                  selected_bus[23].Seat_type,
-                  selected_bus[23]
-                )
-              "
-              [disabled]="selected_bus[23].Booked_status"
-            />
-          </label>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[15].Booked_status"
+              [class.disabled-checkbox]="selected_bus[15].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[15].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[15].Seat_No,
+                    selected_bus[15].Seat_type,
+                    selected_bus[15]
+                  )
+                "
+                [disabled]="selected_bus[15].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[15].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row6">
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[24]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-9</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[24].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[24].Seat_No,
-                  selected_bus[24].Seat_type,
-                  selected_bus[24]
-                )
-              "
-              [disabled]="selected_bus[24].Booked_status"
-            />
-          </label>
+    <div class="lower-deck">
+      <div class="row4">
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[16].Booked_status"
+              [class.disabled-checkbox]="selected_bus[16].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[16].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[16].Seat_No,
+                    selected_bus[16].Seat_type,
+                    selected_bus[16]
+                  )
+                "
+                [disabled]="selected_bus[16].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[16].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[17].Booked_status"
+              [class.disabled-checkbox]="selected_bus[17].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[17].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[17].Seat_No,
+                    selected_bus[17].Seat_type,
+                    selected_bus[17]
+                  )
+                "
+                [disabled]="selected_bus[17].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[17].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[18].Booked_status"
+              [class.disabled-checkbox]="selected_bus[18].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[18].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[18].Seat_No,
+                    selected_bus[18].Seat_type,
+                    selected_bus[18]
+                  )
+                "
+                [disabled]="selected_bus[18].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[18].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[19].Booked_status"
+              [class.disabled-checkbox]="selected_bus[19].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[19].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[19].Seat_No,
+                    selected_bus[19].Seat_type,
+                    selected_bus[19]
+                  )
+                "
+                [disabled]="selected_bus[19].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[19].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
       </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[25]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-10</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[25].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[25].Seat_No,
-                  selected_bus[25].Seat_type,
-                  selected_bus[25]
-                )
-              "
-              [disabled]="selected_bus[25].Booked_status"
-            />
-          </label>
+      <div class="row5">
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[20].Booked_status"
+              [class.disabled-checkbox]="selected_bus[20].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[20].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[20].Seat_No,
+                    selected_bus[20].Seat_type,
+                    selected_bus[20]
+                  )
+                "
+                [disabled]="selected_bus[20].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[20].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[21].Booked_status"
+              [class.disabled-checkbox]="selected_bus[21].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[21].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[21].Seat_No,
+                    selected_bus[21].Seat_type,
+                    selected_bus[21]
+                  )
+                "
+                [disabled]="selected_bus[21].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[21].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[22].Booked_status"
+              [class.disabled-checkbox]="selected_bus[22].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[22].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[22].Seat_No,
+                    selected_bus[22].Seat_type,
+                    selected_bus[22]
+                  )
+                "
+                [disabled]="selected_bus[22].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[22].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[23].Booked_status"
+              [class.disabled-checkbox]="selected_bus[23].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[23].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[23].Seat_No,
+                    selected_bus[23].Seat_type,
+                    selected_bus[23]
+                  )
+                "
+                [disabled]="selected_bus[23].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[23].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
       </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[26]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-11</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[26].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[26].Seat_No,
-                  selected_bus[26].Seat_type,
-                  selected_bus[26]
-                )
-              "
-              [disabled]="selected_bus[26].Booked_status"
-            />
-          </label>
+      <div class="row6">
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[24].Booked_status"
+              [class.disabled-checkbox]="selected_bus[24].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[24].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[24].Seat_No,
+                    selected_bus[24].Seat_type,
+                    selected_bus[24]
+                  )
+                "
+                [disabled]="selected_bus[24].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[24].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="seat-box">
-        <div
-          class="small-box"
-          [style.background-color]="
-            isFemaleBooked(selected_bus[27]) ? 'pink' : ''
-          "
-        >
-          <p class="seat-number">SLU-12</p>
-          <label class="checkbox-label">
-            <input
-              type="checkbox"
-              [value]="selected_bus[27].BusNo"
-              name="selectedItems"
-              (change)="
-                isSelected(
-                  selected_bus[27].Seat_No,
-                  selected_bus[27].Seat_type,
-                  selected_bus[27]
-                )
-              "
-              [disabled]="selected_bus[27].Booked_status"
-            />
-          </label>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[25].Booked_status"
+              [class.disabled-checkbox]="selected_bus[25].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[25].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[25].Seat_No,
+                    selected_bus[25].Seat_type,
+                    selected_bus[25]
+                  )
+                "
+                [disabled]="selected_bus[25].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[25].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[26].Booked_status"
+              [class.disabled-checkbox]="selected_bus[26].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[26].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[26].Seat_No,
+                    selected_bus[26].Seat_type,
+                    selected_bus[26]
+                  )
+                "
+                [disabled]="selected_bus[26].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[26].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+              />
+            </label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="sub">
+            <label
+              class="custom-checkbox"
+              [class.checked]="selected_bus[27].Booked_status"
+              [class.disabled-checkbox]="selected_bus[27].Booked_status"
+            >
+              <input
+                type="checkbox"
+                [value]="selected_bus[27].BusNo"
+                name="selectedItems"
+                (change)="
+                  isSelected(
+                    selected_bus[27].Seat_No,
+                    selected_bus[27].Seat_type,
+                    selected_bus[27]
+                  )
+                "
+                [disabled]="selected_bus[27].Booked_status"
+              />
+
+              <img
+                src="./assets/seat2.png"
+                alt="Seat"
+                [style.border]="
+                  this.selectedState[selected_bus[27].Seat_No]
+                    ? '2px solid black'
+                    : 'none'
+                "
+                [style.background-color]="
+                  isFemaleBooked(selected_bus[27]) ? 'pink' : ''
+                "
+              />
+            </label>
+          </div>
         </div>
       </div>
     </div>
-    <!-- <button type="submit" (click)="selectedValue()">Book</button> -->
+    &nbsp;
     <button type="submit" (click)="displaySelectedItems()">Submit</button>
   </div>
 </div>

@@ -25,8 +25,155 @@
   <button type="submit">Login</button>&nbsp;
   <button type="button" (click)="nav()">LOGOUT</button>
 </form>
+<div *ngIf="canView">
+  <div class="add">
+    <button type="button" (click)="add()">ADD BUS</button>
+  </div>
+</div>
+<div *ngIf="canAdd">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <label
+      for="AvailableSeat_S
+    "
+      >Available_seater:</label
+    ><br />
+    <input
+      type="text"
+      id="AvailableSeat_S
+      "
+      name="AvailableSeat_S
+      "
+      #AvailableSeat_S
+      name="AvailableSeat_S
+      "
+      ngModel
+    /><br />
+
+    <label for="AvailableSeat_SL_Lower">AvailableSeat_SL_Lower </label><br />
+    <input
+      type="text"
+      id="AvailableSeat_SL_Lower"
+      name="AvailableSeat_SL_Lower"
+      #AvailableSeat_SL_Lower
+      name="AvailableSeat_SL_Lower"
+      ngModel
+    /><br />
+
+    <label for="AvailableSeat_SL_Upper">AvailableSeat_SL_Upper </label><br />
+    <input
+      type="text"
+      id="AvailableSeat_SL_Upper"
+      name="AvailableSeat_SL_Upper"
+      #AvailableSeat_SL_Upper
+      name="AvailableSeat_SL_Upper"
+      ngModel
+    /><br />
+
+    <label for="BusName">BusName:</label><br />
+    <input
+      type="text"
+      id="BusName"
+      name="BusName"
+      #BusName
+      name="BusName"
+      ngModel
+    /><br />
+
+    <label for="BusNo">BusNo</label><br />
+    <input
+      type="text"
+      id="BusNo"
+      name="BusNo"
+      #BusNo
+      name="BusNo"
+      ngModel
+    /><br />
+
+    <label for="start">startsAt:</label><br />
+    <input
+      type="text"
+      id="start"
+      name="start"
+      #start
+      name="start"
+      ngModel
+    /><br />
+    <label for="From">FROM:</label><br />
+    <input type="text" id="From" name="From" #From name="From" ngModel /><br />
+    <label for="To">TO:</label><br />
+    <input type="text" id="To" name="To" #To name="To" ngModel /><br />
+
+    <label
+      for="Seater_Price
+    "
+      >Seater_Price :</label
+    ><br />
+    <input
+      type="text"
+      id="Seater_Price
+    "
+      name="Seater_Price
+    "
+      #Seater_Price
+      name="Seater_Price
+    "
+      ngModel
+    /><br />
+    <label
+      for="Sleeper_lower_price
+    "
+      >Sleeper_lower_price :</label
+    ><br />
+    <input
+      type="text"
+      id="Sleeper_lower_price
+    "
+      name="Sleeper_lower_price
+    "
+      #Sleeper_lower_price
+      name="Sleeper_lower_price
+    "
+      ngModel
+    /><br />
+    <label for="Sleeper_upper_price">Sleeper_upper_price:</label><br />
+    <input
+      type="text"
+      id="Sleeper_upper_price"
+      name="Sleeper_upper_price"
+      #Sleeper_upper_price
+      name="Sleeper_upper_price"
+      ngModel
+    /><br />
+    <label
+      for="img
+    "
+      >IMAGE URL</label
+    ><br />
+    <input
+      type="text"
+      id="img
+    "
+      name="img
+    "
+      #img
+      name="img
+    "
+      ngModel
+    /><br />
+
+    <label for="DepartureAt">DEPARTURE:</label><br />
+    <input
+      type="text"
+      id="DepartureAt"
+      name="DepartureAt"
+      #DepartureAt
+      ngModel
+    /><br /><br />
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
 <div *ngIf="canView" class="main">
-  <!-- BUS1 -->
   <div class="bus-container">
     <p>KRISHNA TRAVELS</p>
     <div *ngFor="let seat of BUS1">

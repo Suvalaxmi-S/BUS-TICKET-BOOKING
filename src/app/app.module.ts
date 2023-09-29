@@ -28,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'buses', component: SeatSelectionComponent },
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'home/contact', component: ContactComponent },
   { path: 'admin', component: AdminComponent },
 ];
 

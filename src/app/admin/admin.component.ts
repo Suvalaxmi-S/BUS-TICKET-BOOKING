@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BusesService } from '../services/buses.service';
 import { HttpClient } from '@angular/common/http';
 import { pipe, map } from 'rxjs';
@@ -6,10 +6,12 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  NgForm,
   Validators,
 } from '@angular/forms';
-import { IfStmt } from '@angular/compiler';
+
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -158,7 +160,42 @@ export class AdminComponent implements OnInit {
         });
     }
   }
+  @ViewChild('f') form: NgForm;
+  user = {
+    AvailableSeat_S: '',
+    Available_Sleeper_Lower: '',
+    Available_Sleeper_Upper: '',
+    BusName: '',
+    BusNo: '',
+    Start: '',
+    Departure: '',
+    From: '',
+    To: '',
+  };
   nav() {
     this.router.navigate(['login']);
+  }
+  canAdd: boolean = false;
+  formvalue;
+  add() {
+    this.canAdd = true;
+  }
+  users = {
+    name: 'suva',
+  };
+  onSubmit(form: NgForm) {
+    this.user.AvailableSeat_S = this.form.value.AvailableSeat_S;
+    console.log(this.user);
+    this.http
+      .post(
+        'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS.json',
+        this.user
+      )
+      .subscribe((res) => {
+        console.log(res);
+        alert('BUS ADDED SUCCESSFULLY!!');
+        this.form.reset();
+        this.canAdd = false;
+      });
   }
 }

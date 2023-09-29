@@ -1,79 +1,101 @@
 .main-container {
-  margin-left: 200px;
-  margin-top: 10px;
-  width: 500px;
-  height: 380px;
-  justify-content: center; /* Center the row of seat boxes horizontally */
-
-  background-color: #f0f0f0; /* Background color for the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Style for the row of seat boxes */
-.row1,
+.checkbox-container {
+  position: relative;
+  margin-bottom: 0px;
+}
+.selected-seat img {
+  border: 2px solid black;
+}
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-container label {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox-container img {
+  width: 30px;
+  height: 30px;
+  transition: filter 0.3s;
+}
+
+.custom-checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9CAMAAAC4XpwXAAAAYFBMVEX///8AAABhYWHm5uZmZmb6+vp/f38iIiK+vr5aWlr19fXHx8eVlZXCwsLy8vLY2NhFRUUPDw+dnZ2mpqa3t7eMjIxSUlLPz890dHSGhoYZGRlra2tAQEBNTU01NTUqKiprukW9AAAChklEQVRoge2bXXeCMAyGkQoCYlFaVhSG//9frqHbmXwVSbaznS3vndTmaWkSbt4GAYvF+pWSWl1jlHJliGwR33YEnRMK/HihsEFxhIaXLsLtgJKb3Ekk/ASzL1UhkDIpBGhw8AxW/yKQS++lIWs0amoOcOx7e5exMVpUjFc7s6DBgyC2QY6e8cgkZT6j2Ob7mQoPtKWHZvH49IunXkoi+5S6ku3iWX5We6v1RGLL/UOofOYPqb9XKApcnF2Qy1LfUfC41cc5QasJKfTWBTfGlP0CqtG49O1PdHaQUHAVdEn98GOc+7D16+L0xo7WaLiARvP5keubx/DdN97dFTvv4lZUDjMtSifdI7RPPAH619UeRRZtF/Sq22OZJZO8X6FHLmnv4X67mkmv2o0/OCv0IPJ3gzXtx/RhCa3R7endf5IeSNV0P0e3irLtivRX0VFKmM50pjOd6UxnOtOZznSmM53pTGc605nOdKYznelMZzrTmc50pjOd6UxnOtP/O13oEmMkDr+CXjQEPy+VrvFoOr1yUVBe4glsK73fOdZLfFh1eYGJa9krLOHI0V7ibsbhNvQ2wuaW3YM0LzGcmt/dl8GrXXIPRjQvce9MHDob25Gr1OV0lZxmpG40L/EVQr9bRiUYmqeO5hX7HsVLnPWdIlVCFlVvUpw549xLJ3mJi8Ow+uduERS1x71H8hIH4tGpvJRewnyPl9gmrv6485FuvT4iwYlMNO+7wquTbPvE2NsNnpOwMe6ohiV8x/WcCsipOe/6E3IOc5yX2EqKCorujL0x47oBykts9drPvuAvnSh/M3pCISVvje9Wxbo6hb+o5PgqDlOMwrok3dH6EC7piLtmsf6Q3gCrizBe13X0lAAAAABJRU5ErkJggg==")
+    no-repeat;
+  background-size: cover;
+}
+
+.custom-checkbox.checked {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9CAMAAAC4XpwXAAAAYFBMVEX///8AAABhYWHm5uZmZmb6+vp/f38iIiK+vr5aWlr19fXHx8eVlZXCwsLy8vLY2NhFRUUPDw+dnZ2mpqa3t7eMjIxSUlLPz890dHSGhoYZGRlra2tAQEBNTU01NTUqKiprukW9AAAChklEQVRoge2bXXeCMAyGkQoCYlFaVhSG//9frqHbmXwVSbaznS3vndTmaWkSbt4GAYvF+pWSWl1jlHJliGwR33YEnRMK/HihsEFxhIaXLsLtgJKb3Ekk/ASzL1UhkDIpBGhw8AxW/yKQS++lIWs0amoOcOx7e5exMVpUjFc7s6DBgyC2QY6e8cgkZT6j2Ob7mQoPtKWHZvH49IunXkoi+5S6ku3iWX5We6v1RGLL/UOofOYPqb9XKApcnF2Qy1LfUfC41cc5QasJKfTWBTfGlP0CqtG49O1PdHaQUHAVdEn98GOc+7D16+L0xo7WaLiARvP5keubx/DdN97dFTvv4lZUDjMtSifdI7RPPAH619UeRRZtF/Sq22OZJZO8X6FHLmnv4X67mkmv2o0/OCv0IPJ3gzXtx/RhCa3R7endf5IeSNV0P0e3irLtivRX0VFKmM50pjOd6UxnOtOZznSmM53pTGc605nOdKYznelMZzrTmc50pjOd6UxnOtP/O13oEmMkDr+CXjQEPy+VrvFoOr1yUVBe4glsK73fOdZLfFh1eYGJa9krLOHI0V7ibsbhNvQ2wuaW3YM0LzGcmt/dl8GrXXIPRjQvce9MHDob25Gr1OV0lZxmpG40L/EVQr9bRiUYmqeO5hX7HsVLnPWdIlVCFlVvUpw549xLJ3mJi8Ow+uduERS1x71H8hIH4tGpvJRewnyPl9gmrv6485FuvT4iwYlMNO+7wquTbPvE2NsNnpOwMe6ohiV8x/WcCsipOe/6E3IOc5yX2EqKCorujL0x47oBykts9drPvuAvnSh/M3pCISVvje9Wxbo6hb+o5PgqDlOMwrok3dH6EC7piLtmsf6Q3gCrizBe13X0lAAAAABJRU5ErkJggg==")
+    no-repeat;
+  background-size: cover;
+}
+
+.disabled-checkbox {
+  opacity: 0.5; /* Adjust opacity for disabled state */
+  pointer-events: none; /* Disable pointer events for the label */
+}
+.row1 {
+  display: flex;
+  padding-left: 20px;
+  justify-content: space-around; /* Adjust as needed */
+}
 .row2 {
-  display: flex; /* Make the row a flex container */
-  gap: 10px; /* Adjust the gap between seat boxes */
-  justify-content: center; /* Center the seat boxes horizontally within the row */
-}
-.row4,
-.row3,
-.row5 {
-  display: flex; /* Make the row a flex container */
-  gap: 40px; /* Adjust the gap between seat boxes */
-  justify-content: center;
-}
-
-/* Style for the seat box */
-.seat-box {
-  width: 50px; /* Adjust the width of the seat box */
-  height: 50px; /* Adjust the height of the seat box */
-  background-color: #ccc; /* Background color of the seat box */
-  border: 1px solid #000; /* Border around the seat box */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Style for the small box inside the seat box */
-.small-box {
-  width: 30px; /* Adjust the width of the small box */
-  height: 30px; /* Adjust the height of the small box */
-  background-color: #fff; /* Background color of the small box */
-  border: 1px solid #000; /* Border around the small box */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Style for the seat number */
-.seat-number {
-  font-size: 10px; /* Adjust the font size of the seat number */
-  margin: 0;
-}
-
-/* Style for the checkbox label */
-.checkbox-label {
-  margin-top: 5px; /* Adjust the margin between the seat number and checkbox */
-}
-
-/* Style for the checkbox input */
-.checkbox {
-  /* Add any specific styling for the checkbox input if needed */
+  padding-left: 20px;
+  justify-content: space-around;
 }
 .row3 {
   margin-top: 20px;
+  padding-left: 10px;
+  display: flex;
+  padding-left: 20px;
+  justify-content: space-around;
 }
-
+.row4,
+.row5 {
+  padding-left: 10px;
+  display: flex;
+  padding-left: 20px;
+  justify-content: space-around;
+}
 .row6 {
   margin-top: 20px;
-  display: flex; /* Make the row a flex container */
-  gap: 40px; /* Adjust the gap between seat boxes */
-  justify-content: center;
-}
-.samp {
   display: flex;
+  padding-left: 20px;
+  justify-content: space-around;
+}
+.upper-deck {
+  width: 300px;
+  height: 150px;
+  border: 1px solid grey;
+  margin-bottom: 5px;
+}
+.lower-deck {
+  width: 300px;
+  height: 150px;
+  border: 1px solid grey;
+}
+.custom-checkbox.checked {
+  background-color: black; /* Change to your desired color */
+}
+
+/* Additional style for the checkmark inside the checkbox */
+.custom-checkbox.checked input[type="checkbox"] {
+  border: 2px solid black; /* Change to your desired color */
 }
 
 /* Center the form */
@@ -127,58 +149,29 @@
   background-color: #45a049;
 }
 
-.ladies-box {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.pink-box {
-  background-color: pink;
-  width: 20px; /* Adjust the width as needed */
-  height: 20px; /* Adjust the height as needed */
-  margin-right: 10px; /* Adjust the margin as needed */
-}
-
-.label {
-  margin: 0;
-}
-
-.gents-box {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.grey-box {
-  background-color: rgb(248, 240, 240);
-  width: 20px; /* Adjust the width as needed */
-  height: 20px; /* Adjust the height as needed */
-  margin-left: 0px;
-  margin-right: 10px; /* Adjust the margin as needed */
-}
-
-.label {
-  margin: 0;
-}
-.container {
-  display: flex;
-}
-
-.booking-section {
-  flex: 1; /* Takes 1/3 of the container width */
-  margin-right: 20px; /* Adjust the margin as needed */
-}
-
 .main-container {
-  flex: 2;
+  flex: 1;
   justify-content: center;
   align-items: center; /* Takes 2/3 of the container width */
 }
-
-.booking-form {
-  flex: 1; /* Takes 1/3 of the container width */
-  margin-left: 20px; /* Adjust the margin as needed */
+.head {
+  flex: 1;
+}
+.flex {
+  display: flex;
 }
 
-/* Add any additional styling as needed */
+.f1,
+.f2 {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+input[type="checkbox"]:checked {
+  /* background-image: url("sofaselected.png"); Replace with your checked image URL */
+  border: 2px solid black;
+}
+img {
+  width: 30px;
+  height: 30px;
+}
