@@ -81,13 +81,13 @@
 .upper-deck {
   width: 300px;
   height: 150px;
-  border: 1px solid grey;
+  border: 2px solid rgb(97, 96, 96);
   margin-bottom: 5px;
 }
 .lower-deck {
   width: 300px;
   height: 150px;
-  border: 1px solid grey;
+  border: 2px solid rgb(97, 96, 96);
 }
 .custom-checkbox.checked {
   background-color: black; /* Change to your desired color */
@@ -109,11 +109,11 @@
 
 /* Style the form */
 .form-container {
-  border: 2px solid #ddd;
+  border: 2px solid rgb(29, 29, 29);
   padding: 20px;
   width: 400px;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: #dad4d4;
   max-height: 80vh; /* Maximum height for the form container */
   overflow-y: auto; /* Add vertical scrollbar when needed */
 }
@@ -152,21 +152,40 @@
 .main-container {
   flex: 1;
   justify-content: center;
-  align-items: center; /* Takes 2/3 of the container width */
+  align-items: center;
+  /* Takes 2/3 of the container width */
 }
 .head {
-  flex: 1;
+  display: flex;
+  margin-left: 270px;
+  margin-bottom: 30px;
+  border: 2px solid black;
+  width: 380px;
+
+  /* Adjust as needed */
 }
+
+.f1 {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.f1 img {
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  margin-right: 5px; /* Adjust as needed to create space between image and text */
+}
+
+.f1 p {
+  margin: 0; /* Remove default margin on paragraph */
+}
+
 .flex {
   display: flex;
 }
 
-.f1,
-.f2 {
-  display: flex;
-  align-items: center;
-  margin-right: 20px; /* Adjust the margin as needed */
-}
 input[type="checkbox"]:checked {
   /* background-image: url("sofaselected.png"); Replace with your checked image URL */
   border: 2px solid black;
@@ -174,4 +193,68 @@ input[type="checkbox"]:checked {
 img {
   width: 30px;
   height: 30px;
+}
+
+.f4 {
+  width: 30px;
+  height: 30px;
+  border: 3px solid pink;
+  /* Adjust the margin as needed */
+}
+/* Add your custom styles for the UPI dialog box */
+.upi-dialog {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form inside the UPI dialog */
+.upi-dialog {
+  border: 2px solid black;
+  background-color: #ccc;
+}
+.upi-dialog form {
+  display: flex;
+  flex-direction: column;
+}
+
+.upi-dialog label {
+  margin-bottom: 8px;
+}
+
+.upi-dialog input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid rgb(26, 24, 24);
+  border-radius: 4px;
+}
+
+.upi-dialog button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.upi-dialog button:hover {
+  background-color: #45a049;
+}
+
+/* Add your custom styles for the success message */
+.success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

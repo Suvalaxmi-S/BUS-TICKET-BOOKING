@@ -126,8 +126,5 @@ export class BookingComponent implements OnInit {
           });
       });
     }
-
-    console.log('select:', this.selected_bus);
-    console.log('values', this.values);
   }
 }

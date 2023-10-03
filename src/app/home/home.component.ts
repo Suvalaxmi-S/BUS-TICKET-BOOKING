@@ -17,15 +17,15 @@ export class HomeComponent implements OnInit {
     Name: '',
   };
   ngOnInit(): void {
-    {
-      this.http
-        .post(
-          'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus1.json',
-          this.data
-        )
-        .subscribe((res) => {
-          console.log(res);
-        });
-    }
+    // {
+    //   this.http
+    //     .post(
+    //       'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus1.json',
+    //       this.data
+    //     )
+    //     .subscribe((res) => {
+    //       console.log(res);
+    //     });
+    // }
   }
 }

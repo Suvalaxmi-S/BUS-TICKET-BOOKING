@@ -27,7 +27,6 @@ body {
   padding: 10px;
 }
 
-/* Remove the border from the last .sub item to avoid unnecessary line */
 .sub:last-child {
   border-bottom: none;
 }

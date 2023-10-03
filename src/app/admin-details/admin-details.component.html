@@ -1,0 +1,163 @@
+<div class="add">
+  <button type="button" (click)="add()">ADD BUS</button>
+  <button class="lg" type="button" (click)="nav()">LOGOUT</button>
+</div>
+
+<div *ngIf="canAdd">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="add_form">
+    <label
+      for="AvailableSeat_S
+    "
+      >AVAILABLE-SEATER:</label
+    ><br />
+    <input
+      type="text"
+      id="AvailableSeat_S"
+      name="AvailableSeat_S"
+      #AvailableSeat_S
+      name="AvailableSeat_S"
+      ngModel
+    /><br />
+
+    <label for="AvailableSeat_SL_Lower">AVAILABLE-SLEEPER-LOWER:</label><br />
+    <input
+      type="text"
+      id="AvailableSeat_SL_Lower"
+      name="AvailableSeat_SL_Lower"
+      #AvailableSeat_SL_Lower
+      name="AvailableSeat_SL_Lower"
+      ngModel
+    /><br />
+
+    <label for="AvailableSeat_SL_Upper">AVAILABLE-SLEEPER-UPPER:</label><br />
+    <input
+      type="text"
+      id="AvailableSeat_SL_Upper"
+      name="AvailableSeat_SL_Upper"
+      #AvailableSeat_SL_Upper
+      name="AvailableSeat_SL_Upper"
+      ngModel
+    /><br />
+
+    <label for="BusName">BUSNAME:</label><br />
+    <input
+      type="text"
+      id="BusName"
+      name="BusName"
+      #BusName
+      name="BusName"
+      ngModel
+    /><br />
+
+    <label for="BusNo">BUSNO:</label><br />
+    <input
+      type="text"
+      id="BusNo"
+      name="BusNo"
+      #BusNo
+      name="BusNo"
+      ngModel
+    /><br />
+
+    <label for="startsAt">STARTSAT:</label><br />
+    <input
+      type="text"
+      id="startsAt"
+      name="startsAt"
+      #startsAt
+      name="startsAt"
+      ngModel
+    /><br />
+    <label for="From">FROM:</label><br />
+    <input type="text" id="From" name="From" #From name="From" ngModel /><br />
+    <label for="To">TO:</label><br />
+    <input type="text" id="To" name="To" #To name="To" ngModel /><br />
+
+    <label for="Seater_Price">SEATER-PRICE:</label><br />
+    <input
+      type="text"
+      id="Seater_Price"
+      name="Seater_Price"
+      #Seater_Price
+      name="Seater_Price"
+      ngModel
+    /><br />
+    <label for="Sleeper_lower_price">SLEEPER-LOWER-PRICE :</label><br />
+    <input
+      type="text"
+      id="Sleeper_lower_price"
+      name="Sleeper_lower_price"
+      #Sleeper_lower_price
+      name="Sleeper_lower_price"
+      ngModel
+    /><br />
+    <label for="Sleeper_upper_price">SLEEPER-UPPER-PRICE:</label><br />
+    <input
+      type="text"
+      id="Sleeper_upper_price"
+      name="Sleeper_upper_price"
+      #Sleeper_upper_price
+      name="Sleeper_upper_price"
+      ngModel
+    /><br />
+    <label
+      for="img
+    "
+      >IMAGE URL:</label
+    ><br />
+    <input type="text" id="img" name="img" #img name="img" ngModel /><br />
+
+    <label for="DepartureAt">DEPARTURE:</label><br />
+    <input
+      type="text"
+      id="DepartureAt"
+      name="DepartureAt"
+      #DepartureAt
+      ngModel
+    /><br /><br />
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<div *ngIf="canView" class="main">
+  <div class="bus-container">
+    <h6>KRISHNA TRAVELS</h6>
+    <div *ngFor="let seat of BUS1">
+      <div *ngIf="seat.Booked_status == true" class="card">
+        <p><b>BUS 1 - SEAT-NO:</b> {{ seat.Seat_No }}</p>
+        <p><b>SEAT-TYPE:</b> {{ seat.Seat_type }}</p>
+        <p><b>NAME:</b> {{ seat.Name }}</p>
+        <p><b>GENDER:</b>{{ seat.Gender }}</p>
+        <button type="button" (click)="delete_ticket(seat)">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUS2 -->
+  <div class="bus-container">
+    <h6>SRI TRAVELS</h6>
+    <div *ngFor="let seat of BUS2">
+      <div *ngIf="seat.Booked_status == true" class="card">
+        <p><b>BUS 2 - SEAT-NO:</b> {{ seat.Seat_No }}</p>
+        <p><b>SEAT-TYPE:</b> {{ seat.Seat_type }}</p>
+        <p><b>NAME:</b> {{ seat.Name }}</p>
+        <p><b>GENDER:</b>{{ seat.Gender }}</p>
+        <button type="button" (click)="delete_ticket(seat)">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUS3 -->
+  <div class="bus-container">
+    <h6>JAI TRAVELS</h6>
+    <div *ngFor="let seat of BUS3">
+      <div *ngIf="seat.Booked_status == true" class="card">
+        <p><b>BUS 3 - SEAT-NO:</b> {{ seat.Seat_No }}</p>
+        <p><b>SEAT-TYPE:</b> {{ seat.Seat_type }}</p>
+        <p><b>NAME:</b> {{ seat.Name }}</p>
+        <p><b>GENDER:</b>{{ seat.Gender }}</p>
+        <button type="button" (click)="delete_ticket(seat)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

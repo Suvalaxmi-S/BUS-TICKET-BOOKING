@@ -17,8 +17,10 @@ import { BookingComponent } from './booking/booking.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminDetailsComponent } from './admin-details/admin-details.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login/signup', component: SignupComponent },
   { path: 'seat/:Bus_No', component: SeatComponent },
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'home/contact', component: ContactComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/admindetails', component: AdminDetailsComponent },
 ];
 
 @NgModule({
@@ -45,6 +48,7 @@ const appRoutes: Routes = [
     HomeComponent,
     ContactComponent,
     AdminComponent,
+    AdminDetailsComponent,
   ],
   imports: [
     BrowserModule,

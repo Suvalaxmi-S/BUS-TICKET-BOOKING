@@ -8,7 +8,6 @@ import { BusesService } from '../services/buses.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder, FormGroup, FormArray, ValidatorFn } from '@angular/forms';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-seat',
@@ -169,7 +168,7 @@ export class SeatComponent implements OnInit {
           console.log(this.selected_bus_name);
         });
     });
-    // Initialize checkbox states for each checkbox
+
     const checkboxNames = [
       'S1',
       'S2',
@@ -209,27 +208,18 @@ export class SeatComponent implements OnInit {
   select: any[] = [];
   Cost: number = 0;
   select_id: any[] = [];
-  fem: any[] = [
-    { seat: 'S1', adj: 'S7' },
-    { seat: 'S2', adj: 'S8' },
-    { seat: 'S3', adj: 'S9' },
-    { seat: 'S4', adj: 'S10' },
-    { seat: 'S5', adj: 'S11' },
-    { seat: 'S6', adj: 'S12' },
-  ];
 
   isSelected(seatNo: string, type: string, selected: object) {
-    // Toggle the state of the clicked checkbox
     this.selectedState[seatNo] = !this.selectedState[seatNo];
 
     if (this.selectedState[seatNo]) {
-      if (seatNo === 'S8') {
-        const seatS2 = this.selected_bus.find((seat) => seat.seatNo === 'S2');
+      // if (seatNo === 'S8') {
+      //   const seatS2 = this.selected_bus.find((seat) => seat.seatNo === 'S2');
 
-        if (seatS2 && seatS2.Booked_status) {
-          alert('Only females are allowed to book');
-        }
-      }
+      //   if (seatS2 && seatS2.Booked_status) {
+      //     alert('Only females are allowed to book');
+      //   }
+      // }
 
       this.selectedItems.push(seatNo);
       this.select.push(selected);
@@ -249,6 +239,7 @@ export class SeatComponent implements OnInit {
   displaySelectedItems() {
     if (this.selectedItems.length <= 5) {
       this.canBook = true;
+      this.router.navigate(['bookingform']);
     } else {
       alert('a person can select a maximum of 5 seats only');
     }
@@ -260,9 +251,106 @@ export class SeatComponent implements OnInit {
     if (form.valid) {
       const seatDataArray = this.formValues.map((seatForm) => seatForm.value);
       this.duplicate_array.push(seatDataArray);
+      alert('Values added successfully');
     }
   }
+  female_color = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+  Array1 = [
+    'S1',
+    'S2',
+    'S3',
+    'S4',
+    'S5',
+    'S6',
+    'SLU-1',
+    'SLU-2',
+    'SLU-3',
+    'SLU-4',
+  ];
+  Array2 = [
+    'S7',
+    'S8',
+    'S9',
+    'S10',
+    'S11',
+    'S12',
+    'SLU-5',
+    'SLU-6',
+    'SLU-7',
+    'SLU-8',
+  ];
+  female() {
+    for (let i in this.Array1) {
+      for (let k in this.selected_bus) {
+        if (this.selected_bus[k].Seat_No === this.Array1[i]) {
+          if (
+            this.selected_bus[k].Booked_status === true &&
+            this.selected_bus[k].Gender === 'female'
+          ) {
+            for (let j in this.selected_bus) {
+              if (this.Array2[i] === this.selected_bus[j].Seat_No) {
+                if (this.selected_bus[j].Booked_status === false) {
+                  this.female_color[j] = true;
 
+                  console.log('booo', this.selected_bus[j], this.female_color);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    for (let i in this.Array2) {
+      for (let k in this.selected_bus) {
+        if (this.selected_bus[k].Seat_No === this.Array2[i]) {
+          if (
+            this.selected_bus[k].Booked_status === true &&
+            this.selected_bus[k].Gender === 'female'
+          ) {
+            for (let j in this.selected_bus) {
+              if (this.Array1[i] === this.selected_bus[j].Seat_No) {
+                if (this.selected_bus[j].Booked_status === false) {
+                  this.female_color[j] = true;
+
+                  console.log('booo', this.selected_bus[j], this.female_color);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   ngOnInit(): void {
     this.myForm = this.fb.group({
       name: [
@@ -270,7 +358,7 @@ export class SeatComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.pattern(/^[a-zA-Z\s]*$/), // Allow only letters and spaces
+          Validators.pattern(/^[a-zA-Z\s]*$/),
         ],
       ],
       gender: ['', Validators.required],
@@ -280,24 +368,49 @@ export class SeatComponent implements OnInit {
           Validators.required,
           Validators.min(5),
           Validators.max(99),
-          Validators.pattern('^[0-9]*$'), // Only allow numeric values
+          Validators.pattern('^[0-9]*$'),
         ],
       ],
     });
     this.formValues.push(this.myForm);
   }
   isFemaleBooked(seat: any): boolean {
-    // Assuming you have a 'Gender' property in your seat object
     return seat.Gender === 'female' && seat.Booked_status;
   }
+  showUpiForm: boolean = false;
+  upiId: string = '';
+  showSuccessMessage = false;
   book() {
-    console.log(this.duplicate_array);
-    this.busSer.sendata(
-      this.duplicate_array,
-      this.selectedItems,
-      this.bus_No,
-      this.select
-    );
-    this.router.navigate(['book']);
+    // console.log(this.duplicate_array);
+    // this.busSer.sendata(
+    //   this.duplicate_array,
+    //   this.selectedItems,
+    //   this.bus_No,
+    //   this.select
+    // );
+    // this.router.navigate(['book']);
+    this.showUpiForm = true;
+    this.canBook = false;
+  }
+
+  submitUpiForm() {
+    if (this.validateUpiId(this.upiId)) {
+      this.busSer.sendata(
+        this.duplicate_array,
+        this.selectedItems,
+        this.bus_No,
+        this.select
+      );
+      alert('TRANSCATION SUCCESSFULL ✅');
+      this.router.navigate(['book']);
+    } else {
+      alert('TRANSCATION FAILED-INVALID UPI ID ❌');
+    }
+
+    this.showUpiForm = false;
+  }
+  private validateUpiId(upiId: string): boolean {
+    const savedUpiId = 'suva@oksbi';
+    return upiId === savedUpiId;
   }
 }

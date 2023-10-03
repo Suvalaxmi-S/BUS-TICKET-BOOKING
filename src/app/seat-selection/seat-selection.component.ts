@@ -67,15 +67,6 @@ export class SeatSelectionComponent implements OnInit {
         this.search_bus = res;
         console.log(this.Bus_info);
       });
-
-    // this.http
-    //   .post(
-    //     'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus3.json',
-    //     this.seat
-    //   )
-    //   .subscribe((res) => {
-    //     console.log('Seat booked successfully:', res);
-    //   });
   }
 
   search() {
@@ -85,17 +76,6 @@ export class SeatSelectionComponent implements OnInit {
       );
     } else {
       this.search_bus = this.Bus_info;
-    }
-  }
-  navigate(busNo: number) {
-    if (busNo == 789) {
-      this.router.navigate(['seat']);
-    }
-    if (busNo == 985) {
-      this.router.navigate(['seat2']);
-    }
-    if (busNo == 456) {
-      this.router.navigate(['seat3']);
     }
   }
 }
