@@ -17,6 +17,7 @@
       #AvailableSeat_S
       name="AvailableSeat_S"
       ngModel
+      required
     /><br />
 
     <label for="AvailableSeat_SL_Lower">AVAILABLE-SLEEPER-LOWER:</label><br />
@@ -27,6 +28,7 @@
       #AvailableSeat_SL_Lower
       name="AvailableSeat_SL_Lower"
       ngModel
+      required
     /><br />
 
     <label for="AvailableSeat_SL_Upper">AVAILABLE-SLEEPER-UPPER:</label><br />
@@ -37,6 +39,7 @@
       #AvailableSeat_SL_Upper
       name="AvailableSeat_SL_Upper"
       ngModel
+      required
     /><br />
 
     <label for="BusName">BUSNAME:</label><br />
@@ -47,6 +50,7 @@
       #BusName
       name="BusName"
       ngModel
+      required
     /><br />
 
     <label for="BusNo">BUSNO:</label><br />
@@ -57,6 +61,7 @@
       #BusNo
       name="BusNo"
       ngModel
+      required
     /><br />
 
     <label for="startsAt">STARTSAT:</label><br />
@@ -67,11 +72,20 @@
       #startsAt
       name="startsAt"
       ngModel
+      required
     /><br />
     <label for="From">FROM:</label><br />
-    <input type="text" id="From" name="From" #From name="From" ngModel /><br />
+    <input
+      type="text"
+      id="From"
+      name="From"
+      #From
+      name="From"
+      ngModel
+      required
+    /><br />
     <label for="To">TO:</label><br />
-    <input type="text" id="To" name="To" #To name="To" ngModel /><br />
+    <input type="text" id="To" name="To" #To name="To" ngModel required /><br />
 
     <label for="Seater_Price">SEATER-PRICE:</label><br />
     <input
@@ -81,6 +95,7 @@
       #Seater_Price
       name="Seater_Price"
       ngModel
+      required
     /><br />
     <label for="Sleeper_lower_price">SLEEPER-LOWER-PRICE :</label><br />
     <input
@@ -90,6 +105,7 @@
       #Sleeper_lower_price
       name="Sleeper_lower_price"
       ngModel
+      required
     /><br />
     <label for="Sleeper_upper_price">SLEEPER-UPPER-PRICE:</label><br />
     <input
@@ -99,13 +115,22 @@
       #Sleeper_upper_price
       name="Sleeper_upper_price"
       ngModel
+      required
     /><br />
     <label
       for="img
     "
       >IMAGE URL:</label
     ><br />
-    <input type="text" id="img" name="img" #img name="img" ngModel /><br />
+    <input
+      type="text"
+      id="img"
+      name="img"
+      #img
+      name="img"
+      ngModel
+      required
+    /><br />
 
     <label for="DepartureAt">DEPARTURE:</label><br />
     <input
@@ -114,6 +139,7 @@
       name="DepartureAt"
       #DepartureAt
       ngModel
+      required
     /><br /><br />
 
     <button type="submit">Submit</button>

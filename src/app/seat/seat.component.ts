@@ -208,19 +208,12 @@ export class SeatComponent implements OnInit {
   select: any[] = [];
   Cost: number = 0;
   select_id: any[] = [];
+  global = null;
 
   isSelected(seatNo: string, type: string, selected: object) {
     this.selectedState[seatNo] = !this.selectedState[seatNo];
 
     if (this.selectedState[seatNo]) {
-      // if (seatNo === 'S8') {
-      //   const seatS2 = this.selected_bus.find((seat) => seat.seatNo === 'S2');
-
-      //   if (seatS2 && seatS2.Booked_status) {
-      //     alert('Only females are allowed to book');
-      //   }
-      // }
-
       this.selectedItems.push(seatNo);
       this.select.push(selected);
     } else {
@@ -231,7 +224,7 @@ export class SeatComponent implements OnInit {
     if (type === 'sleeper_lower') this.Cost = this.Cost + 1200;
     if (type === 'sleeper_upper') this.Cost = this.Cost + 1100;
 
-    console.log('OBJECT:', this.select);
+    console.log('OBJECT_MAIN:', this.select);
     console.log(this.selectedItems, this.Cost);
   }
 
@@ -308,6 +301,7 @@ export class SeatComponent implements OnInit {
     'SLU-7',
     'SLU-8',
   ];
+
   female() {
     for (let i in this.Array1) {
       for (let k in this.selected_bus) {
@@ -320,7 +314,8 @@ export class SeatComponent implements OnInit {
               if (this.Array2[i] === this.selected_bus[j].Seat_No) {
                 if (this.selected_bus[j].Booked_status === false) {
                   this.female_color[j] = true;
-
+                  this.global = j;
+                  this.selected_bus[j]['only_female'] = true;
                   console.log('booo', this.selected_bus[j], this.female_color);
                 }
               }
@@ -341,8 +336,14 @@ export class SeatComponent implements OnInit {
               if (this.Array1[i] === this.selected_bus[j].Seat_No) {
                 if (this.selected_bus[j].Booked_status === false) {
                   this.female_color[j] = true;
-
-                  console.log('booo', this.selected_bus[j], this.female_color);
+                  this.global = j;
+                  this.selected_bus[j]['only_female'] = true;
+                  console.log(
+                    'booo',
+                    this.selected_bus[j],
+                    this.female_color,
+                    j
+                  );
                 }
               }
             }

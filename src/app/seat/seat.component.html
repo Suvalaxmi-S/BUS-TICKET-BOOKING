@@ -1128,8 +1128,8 @@
       </div>
     </div>
     &nbsp;
-    <button class="aaa" type="button" (click)="female()">
-      Need Female Seats?
+    <button class="aaa" type="submit" (click)="female()">
+      Check for female seats?
     </button>
     <button class="aaa" type="submit" (click)="displaySelectedItems()">
       Submit
@@ -1143,8 +1143,8 @@
       <p>Total Cost:{{ Cost }}</p>
       <form (ngSubmit)="onSubmit(myForm)">
         <div [formGroup]="myForm">
-          <div class="main" *ngFor="let obj of selectedItems">
-            <p>Seat No:{{ obj }}</p>
+          <div class="main" *ngFor="let obj of select">
+            <p>Seat No:{{ obj.Seat_No }}</p>
 
             <div class="name">
               <label for="name">Name:</label>
@@ -1160,29 +1160,25 @@
               </div>
             </div>
             <div>
-              <label for="male">Male</label>
-              <input
-                type="radio"
-                id="male"
-                formControlName="gender"
-                value="male"
-              />
+              <div *ngIf="!obj.only_female">
+                <label for="male">Male</label>
+                <input
+                  type="radio"
+                  id="male"
+                  formControlName="gender"
+                  value="male"
+                />
+              </div>
 
               <label for="female">Female</label>
-              <input
-                type="radio"
-                id="female"
-                formControlName="gender"
-                value="female"
-              />
-
-              <label for="other">Other</label>
-              <input
-                type="radio"
-                id="other"
-                formControlName="gender"
-                value="other"
-              />
+              <div>
+                <input
+                  type="radio"
+                  id="female"
+                  formControlName="gender"
+                  value="female"
+                />
+              </div>
             </div>
             <div class="age">
               <label for="age">AGE:</label>
@@ -1206,8 +1202,13 @@
 
 <div class="upi-dialog" *ngIf="showUpiForm">
   <form (ngSubmit)="submitUpiForm()">
+    <P id="tottal_cost">AMOUNT:{{ Cost }}</P>
     <label for="upiId">Enter UPI ID:</label>
+
     <input type="text" id="upiId" [(ngModel)]="upiId" name="upiId" required />
+
+    <!-- Display the amount next to the input field -->
+
     <button type="submit">Submit</button>
   </form>
 </div>
