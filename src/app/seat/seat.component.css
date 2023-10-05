@@ -45,8 +45,8 @@
 }
 
 .disabled-checkbox {
-  opacity: 0.5; /* Adjust opacity for disabled state */
-  pointer-events: none; /* Disable pointer events for the label */
+  opacity: 0.5;
+  pointer-events: none;
 }
 .row1 {
   display: flex;
