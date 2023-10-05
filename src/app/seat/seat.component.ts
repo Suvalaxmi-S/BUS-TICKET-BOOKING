@@ -27,183 +27,7 @@ export class SeatComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private busSer: BusesService
-  ) {
-    this.route.paramMap.subscribe((params) => {
-      const busNo = params.get('Bus_No');
-      this.bus_No = busNo;
-      console.log(busNo);
-      if (busNo === '456') {
-        this.http
-          .get(
-            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus1.json'
-          )
-          .pipe(
-            map((data) => {
-              const dataEntryed = [];
-
-              for (const key in data) {
-                if (data.hasOwnProperty(key)) {
-                  dataEntryed.push({ ...data[key], id: key });
-                }
-              }
-
-              return dataEntryed;
-            })
-          )
-          .subscribe((res) => {
-            this.selected_bus = res;
-            console.log(this.selected_bus);
-          });
-
-        this.http
-          .get(
-            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS[0].json'
-          )
-          .pipe(
-            map((data) => {
-              const dataEntryed = [];
-
-              for (const key in data) {
-                if (data.hasOwnProperty(key)) {
-                  dataEntryed.push({ ...data[key], id: key });
-                }
-              }
-
-              return dataEntryed;
-            })
-          )
-          .subscribe((res) => {
-            this.selected_bus_name = res;
-            console.log(this.selected_bus_name);
-          });
-      }
-      if (busNo == '789') {
-        this.http
-          .get(
-            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus2.json'
-          )
-          .pipe(
-            map((data) => {
-              const dataEntryed = [];
-
-              for (const key in data) {
-                if (data.hasOwnProperty(key)) {
-                  dataEntryed.push({ ...data[key], id: key });
-                }
-              }
-
-              return dataEntryed;
-            })
-          )
-          .subscribe((res) => {
-            this.selected_bus = res;
-            console.log(this.selected_bus);
-          });
-
-        this.http
-          .get(
-            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS[1].json'
-          )
-          .pipe(
-            map((data) => {
-              const dataEntryed = [];
-
-              for (const key in data) {
-                if (data.hasOwnProperty(key)) {
-                  dataEntryed.push({ ...data[key], id: key });
-                }
-              }
-
-              return dataEntryed;
-            })
-          )
-          .subscribe((res) => {
-            this.selected_bus_name = res;
-            console.log(this.selected_bus_name);
-          });
-      }
-      if (busNo == '985') {
-        this.http
-          .get(
-            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus3.json'
-          )
-          .pipe(
-            map((data) => {
-              const dataEntryed = [];
-
-              for (const key in data) {
-                if (data.hasOwnProperty(key)) {
-                  dataEntryed.push({ ...data[key], id: key });
-                }
-              }
-
-              return dataEntryed;
-            })
-          )
-          .subscribe((res) => {
-            this.selected_bus = res;
-            console.log(this.selected_bus);
-          });
-      }
-
-      this.http
-        .get(
-          'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS[2].json'
-        )
-        .pipe(
-          map((data) => {
-            const dataEntryed = [];
-
-            for (const key in data) {
-              if (data.hasOwnProperty(key)) {
-                dataEntryed.push({ ...data[key], id: key });
-              }
-            }
-
-            return dataEntryed;
-          })
-        )
-        .subscribe((res) => {
-          this.selected_bus_name = res;
-          console.log(this.selected_bus_name);
-        });
-    });
-
-    const checkboxNames = [
-      'S1',
-      'S2',
-      'S3',
-      'S4',
-      'S5',
-      'S6',
-      'S7',
-      'S8',
-      'S9',
-      'S10',
-      'S11',
-      'S12',
-      'SLL-1',
-      'SLL-2',
-      'SLL-3',
-      'SLL-4',
-      'SLU-1',
-      'SLU-2',
-      'SLU-3',
-      'SLU-4',
-      'SLU-5',
-      'SLU-6',
-      'SLU-7',
-      'SLU-8',
-      'SLU-9',
-      'SLU-10',
-      'SLU-11',
-      'SLU-12',
-    ];
-
-    checkboxNames.forEach((name) => {
-      this.selectedState[name] = false;
-    });
-  }
+  ) {}
   selectedItems: string[] = [];
   select: any[] = [];
   Cost: number = 0;
@@ -302,57 +126,339 @@ export class SeatComponent implements OnInit {
     'SLU-8',
   ];
 
-  female() {
-    for (let i in this.Array1) {
-      for (let k in this.selected_bus) {
-        if (this.selected_bus[k].Seat_No === this.Array1[i]) {
-          if (
-            this.selected_bus[k].Booked_status === true &&
-            this.selected_bus[k].Gender === 'female'
-          ) {
-            for (let j in this.selected_bus) {
-              if (this.Array2[i] === this.selected_bus[j].Seat_No) {
-                if (this.selected_bus[j].Booked_status === false) {
-                  this.female_color[j] = true;
-                  this.global = j;
-                  this.selected_bus[j]['only_female'] = true;
-                  console.log('booo', this.selected_bus[j], this.female_color);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    for (let i in this.Array2) {
-      for (let k in this.selected_bus) {
-        if (this.selected_bus[k].Seat_No === this.Array2[i]) {
-          if (
-            this.selected_bus[k].Booked_status === true &&
-            this.selected_bus[k].Gender === 'female'
-          ) {
-            for (let j in this.selected_bus) {
-              if (this.Array1[i] === this.selected_bus[j].Seat_No) {
-                if (this.selected_bus[j].Booked_status === false) {
-                  this.female_color[j] = true;
-                  this.global = j;
-                  this.selected_bus[j]['only_female'] = true;
-                  console.log(
-                    'booo',
-                    this.selected_bus[j],
-                    this.female_color,
-                    j
-                  );
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  female() {}
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const busNo = params.get('Bus_No');
+      this.bus_No = busNo;
+      console.log(busNo);
+      if (this.bus_No === '456') {
+        this.http
+          .get(
+            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus1.json'
+          )
+          .pipe(
+            map((data) => {
+              const dataEntryed = [];
+
+              for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                  dataEntryed.push({ ...data[key], id: key });
+                }
+              }
+
+              return dataEntryed;
+            })
+          )
+          .subscribe((res) => {
+            this.selected_bus = res;
+            console.log(this.selected_bus);
+            for (let i in this.Array1) {
+              for (let k in this.selected_bus) {
+                if (this.selected_bus[k].Seat_No === this.Array1[i]) {
+                  if (
+                    this.selected_bus[k].Booked_status === true &&
+                    this.selected_bus[k].Gender === 'female'
+                  ) {
+                    for (let j in this.selected_bus) {
+                      if (this.Array2[i] === this.selected_bus[j].Seat_No) {
+                        if (this.selected_bus[j].Booked_status === false) {
+                          this.female_color[j] = true;
+                          this.global = j;
+                          this.selected_bus[j]['only_female'] = true;
+                          console.log(
+                            'booo',
+                            this.selected_bus[j],
+                            this.female_color
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            for (let i in this.Array2) {
+              for (let k in this.selected_bus) {
+                if (this.selected_bus[k].Seat_No === this.Array2[i]) {
+                  if (
+                    this.selected_bus[k].Booked_status === true &&
+                    this.selected_bus[k].Gender === 'female'
+                  ) {
+                    for (let j in this.selected_bus) {
+                      if (this.Array1[i] === this.selected_bus[j].Seat_No) {
+                        if (this.selected_bus[j].Booked_status === false) {
+                          this.female_color[j] = true;
+                          this.global = j;
+                          this.selected_bus[j]['only_female'] = true;
+                          console.log(
+                            'booo',
+                            this.selected_bus[j],
+                            this.female_color,
+                            j
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          });
+
+        this.http
+          .get(
+            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS[0].json'
+          )
+          .pipe(
+            map((data) => {
+              const dataEntryed = [];
+
+              for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                  dataEntryed.push({ ...data[key], id: key });
+                }
+              }
+
+              return dataEntryed;
+            })
+          )
+          .subscribe((res) => {
+            this.selected_bus_name = res;
+            console.log(this.selected_bus_name);
+          });
+      }
+      if (this.bus_No == '789') {
+        this.http
+          .get(
+            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus2.json'
+          )
+          .pipe(
+            map((data) => {
+              const dataEntryed = [];
+
+              for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                  dataEntryed.push({ ...data[key], id: key });
+                }
+              }
+
+              return dataEntryed;
+            })
+          )
+          .subscribe((res) => {
+            this.selected_bus = res;
+            console.log(this.selected_bus);
+            for (let i in this.Array1) {
+              for (let k in this.selected_bus) {
+                if (this.selected_bus[k].Seat_No === this.Array1[i]) {
+                  if (
+                    this.selected_bus[k].Booked_status === true &&
+                    this.selected_bus[k].Gender === 'female'
+                  ) {
+                    for (let j in this.selected_bus) {
+                      if (this.Array2[i] === this.selected_bus[j].Seat_No) {
+                        if (this.selected_bus[j].Booked_status === false) {
+                          this.female_color[j] = true;
+                          this.global = j;
+                          this.selected_bus[j]['only_female'] = true;
+                          console.log(
+                            'booo',
+                            this.selected_bus[j],
+                            this.female_color
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            for (let i in this.Array2) {
+              for (let k in this.selected_bus) {
+                if (this.selected_bus[k].Seat_No === this.Array2[i]) {
+                  if (
+                    this.selected_bus[k].Booked_status === true &&
+                    this.selected_bus[k].Gender === 'female'
+                  ) {
+                    for (let j in this.selected_bus) {
+                      if (this.Array1[i] === this.selected_bus[j].Seat_No) {
+                        if (this.selected_bus[j].Booked_status === false) {
+                          this.female_color[j] = true;
+                          this.global = j;
+                          this.selected_bus[j]['only_female'] = true;
+                          console.log(
+                            'booo',
+                            this.selected_bus[j],
+                            this.female_color,
+                            j
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          });
+
+        this.http
+          .get(
+            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS[1].json'
+          )
+          .pipe(
+            map((data) => {
+              const dataEntryed = [];
+
+              for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                  dataEntryed.push({ ...data[key], id: key });
+                }
+              }
+
+              return dataEntryed;
+            })
+          )
+          .subscribe((res) => {
+            this.selected_bus_name = res;
+            console.log(this.selected_bus_name);
+          });
+      }
+      if (this.bus_No == '985') {
+        this.http
+          .get(
+            'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/seat_bus3.json'
+          )
+          .pipe(
+            map((data) => {
+              const dataEntryed = [];
+
+              for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                  dataEntryed.push({ ...data[key], id: key });
+                }
+              }
+
+              return dataEntryed;
+            })
+          )
+          .subscribe((res) => {
+            this.selected_bus = res;
+            console.log(this.selected_bus);
+            for (let i in this.Array1) {
+              for (let k in this.selected_bus) {
+                if (this.selected_bus[k].Seat_No === this.Array1[i]) {
+                  if (
+                    this.selected_bus[k].Booked_status === true &&
+                    this.selected_bus[k].Gender === 'female'
+                  ) {
+                    for (let j in this.selected_bus) {
+                      if (this.Array2[i] === this.selected_bus[j].Seat_No) {
+                        if (this.selected_bus[j].Booked_status === false) {
+                          this.female_color[j] = true;
+                          this.global = j;
+                          this.selected_bus[j]['only_female'] = true;
+                          console.log(
+                            'booo',
+                            this.selected_bus[j],
+                            this.female_color
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            for (let i in this.Array2) {
+              for (let k in this.selected_bus) {
+                if (this.selected_bus[k].Seat_No === this.Array2[i]) {
+                  if (
+                    this.selected_bus[k].Booked_status === true &&
+                    this.selected_bus[k].Gender === 'female'
+                  ) {
+                    for (let j in this.selected_bus) {
+                      if (this.Array1[i] === this.selected_bus[j].Seat_No) {
+                        if (this.selected_bus[j].Booked_status === false) {
+                          this.female_color[j] = true;
+                          this.global = j;
+                          this.selected_bus[j]['only_female'] = true;
+                          console.log(
+                            'booo',
+                            this.selected_bus[j],
+                            this.female_color,
+                            j
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          });
+      }
+
+      this.http
+        .get(
+          'https://sample-eb12c-default-rtdb.asia-southeast1.firebasedatabase.app/BUS[2].json'
+        )
+        .pipe(
+          map((data) => {
+            const dataEntryed = [];
+
+            for (const key in data) {
+              if (data.hasOwnProperty(key)) {
+                dataEntryed.push({ ...data[key], id: key });
+              }
+            }
+
+            return dataEntryed;
+          })
+        )
+        .subscribe((res) => {
+          this.selected_bus_name = res;
+          console.log(this.selected_bus_name);
+        });
+    });
+
+    const checkboxNames = [
+      'S1',
+      'S2',
+      'S3',
+      'S4',
+      'S5',
+      'S6',
+      'S7',
+      'S8',
+      'S9',
+      'S10',
+      'S11',
+      'S12',
+      'SLL-1',
+      'SLL-2',
+      'SLL-3',
+      'SLL-4',
+      'SLU-1',
+      'SLU-2',
+      'SLU-3',
+      'SLU-4',
+      'SLU-5',
+      'SLU-6',
+      'SLU-7',
+      'SLU-8',
+      'SLU-9',
+      'SLU-10',
+      'SLU-11',
+      'SLU-12',
+    ];
+
+    checkboxNames.forEach((name) => {
+      this.selectedState[name] = false;
+    });
     this.myForm = this.fb.group({
       name: [
         '',
