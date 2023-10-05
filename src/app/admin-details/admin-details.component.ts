@@ -224,6 +224,7 @@ export class AdminDetailsComponent implements OnInit {
           upd
         )
         .subscribe((res) => {
+          alert('ticket cancelled');
           console.log(res);
         });
     }
@@ -234,6 +235,7 @@ export class AdminDetailsComponent implements OnInit {
           upd
         )
         .subscribe((res) => {
+          alert('ticket cancelled');
           console.log(res);
         });
     }
@@ -244,6 +246,7 @@ export class AdminDetailsComponent implements OnInit {
           upd
         )
         .subscribe((res) => {
+          alert('ticket cancelled');
           console.log(res);
         });
     }
